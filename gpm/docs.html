@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>GHPM Documentation</title>
+        <style>
+  html,
+  body {
+    min-width: 290px;
+    color: #ffa500; /* Orangy-dark text color */
+    background-color: #121212; /* Dark background color */
+    line-height: 1.5;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
+    margin: 0;
+    padding: 0;
+  }
+
+  #navbar {
+    position: fixed;
+    min-width: 290px;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100%;
+    border-right: solid;
+    border-color: rgba(255, 165, 0, 0.4); /* Orangy-dark border color */
+  }
+
+  nav {
+    display: block;
+  }
+
+  body {
+    display: block;
+    margin: 8px;
+  }
+
+  #navbar ul {
+    height: 88%;
+    padding: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    list-style: none;
+    margin: 0;
+    border: 2px solid rgb(34, 34, 34); /* Dark box background color */
+  }
+
+  ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+  }
+
+  header {
+    color: #ffa500; /* Orangy-dark heading color */
+    margin: 10px;
+    text-align: center;
+    font-size: 1.8em;
+    display: block;
+    background-color: #333; /* Dark header background color */
+    padding: 1em;
+  }
+
+  #navbar li {
+    color: #ffa500; /* Orangy-dark text color */
+    border-top: 1px solid;
+    list-style: none;
+    position: relative;
+    width: 100%;
+    padding: 0;
+  }
+
+  li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+  }
+
+  #main-doc {
+    position: absolute;
+    margin-left: 310px;
+    padding: 20px;
+    margin-bottom: 110px;
+  }
+
+  section {
+    display: block;
+    color: #ffa500; /* Orangy-dark text color */
+    margin: 15px;
+    font-size: 0.96em;
+  }
+
+  code {
+    display: block;
+    text-align: left;
+    white-space: pre-line;
+    position: relative;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 2;
+    background-color: #222; /* Dark box background color */
+    padding: 15px;
+    margin: 10px;
+    border-radius: 5px;
+    font-family: monospace;
+    color: #ffa500; /* Orangy-dark text color */
+  }
+
+  @media (max-width: 768px) {
+    body {
+      width: 358px;
+    }
+
+    main {
+      width: 318px;
+    }
+
+    body {
+      width: 150px;
+    }
+  }
+
+  #navbar a {
+    color: #ffa500; /* Orangy-dark text color */
+    display: block;
+    padding: 10px 30px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+</style>
+
+    </head>
+    <body>
+        <nav id="navbar">
+            <header>GHPM Documentation</header>
+            <ul>
+                <li>
+                    <a class="nav-link" href="#Installing">Installing GHPM</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#Installi">Install Repos</a>
+                </li>
+              <li>
+                    <a class="nav-link" href="#Activate">Activate Repos</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#Uninstall">Uninstall</a>
+                </li>
+              
+            </ul>
+        </nav>
+
+        <main id="main-doc">
+
+            <section class="main-section" id="Installing">
+                <header>Installing GHPM</header>
+                               <p>Upon completion of the download, the next step is to extract the contents of the file.</p>
+ <p>
+Inside, you will find a directory denoted as "GitHub-Package-Manager." However, it's essential to designate your preferred storage location for this folder before advancing.</p>
+ <p>
+Subsequently, in your command line interface, direct yourself to the "GitHub-Package-Manager" directory by employing the 'cd' command.</p>
+ <p>
+To initialize the application, execute the 'python3 Start.py' command.</p>
+ <p>
+With these actions completed, you are now well-prepared to fully leverage the capabilities of GitHub-Package-Manager.</p>
+            </section>
+
+            <section class="main-section" id="Installi">
+                <header>Installing Repositories with GHPM</header>
+              <p>Load GHPM:</p>
+              <p>     Launch the GHPM application.</p>
+              <p>Initiate Installation:
+Within the GUI, select the "Install" option. This selection will prompt a new window.
+              </p>
+              <p>Specify Repository or Folder:
+Now, you can automate the installation process between GitHub and local folders.
+v Enter the Git repository you wish to download, or choose a local folder for connection.</p>
+              <p>Submission:
+Click the "Submit" button, and you will be presented with a file display.</p>
+              <p>Automated Installation:
+The displayed window allows for complex automated installations.
+After selecting a file, the window will close, and the system will automatically manage the required environment for launches, completing the installation.</p>
+                <!-- Usage Information... -->
+              
+            </section>
+          
+            <section class="main-section" id="Activate">
+                <header>Activating Downloads</header>
+                
+              <p>Repo Selection:
+If you've downloaded a repository from the Installer, it will appear within the "Activator" in the GUI.
+Standard installations are found in the first layer of the "Activator," which will request you to confirm GitHub.</p>
+              <p>Confirmation:
+Once you select "Yes" for GitHub, you'll see the following display.
+If you choose "No," it will prompt for local applications, and another "No" will display complex applications.</p>
+              <p>Application Launch:
+Select and double-click the option for your application. This action opens a new window reflecting the application as it launches in the chosen format.</p>
+              <p>Please note that the specific steps for activation may vary depending on the style of the package and the installation method</p>
+              <p></p>
+              <p></p>
+                <!-- Uninstall Steps... -->
+            </section>
+          
+            <section class="main-section" id="Uninstall">
+                <header>Uninstall Downloads</header>
+                <p>Access Uninstall:
+From the main menu in the GUI, select the "uninstall" option.</p>
+              <p>Uninstall Menu:
+This will open a menu that allows you to uninstall both GitHub and Advanced applications.</p>
+              <p>
+Confirmation:
+Once you've made your selection, click "Confirm Uninstall." This action will bring up a confirmation window.</p>
+              <p>Uninstall Process:
+If you select "Yes," the program will attempt to uninstall the application. Depending on how it manages the uninstallation, you will receive a corresponding notification.</p>
+                <!-- Uninstall Steps... -->
+            </section>
+          
+
+        </main>
+    </body>
+</html>
