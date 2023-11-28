@@ -9,7 +9,6 @@
     transition: filter 5.3s ease-in-out; /* Add a smooth transition effect */
     }
 
-    
     /* Your existing CSS rules */
     /* Add this CSS rule for the "Visit GitHub" link */
     .github-link {
@@ -21,7 +20,9 @@
       text-decoration: none;
       border-radius: 5px;
     }
-  body {
+  
+    /* Your existing CSS rules */
+    body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
@@ -350,7 +351,6 @@ a:hover {
   color: #ccc;
 }
 
-    /* Your existing CSS rules */
   </style>
 </head>
 <body>
@@ -416,6 +416,158 @@ a:hover {
 <!-- Place this script block just before the closing </body> tag -->
 <!-- Place this script block just before the closing </body> tag -->
 <script>
+  
+  // Function to display the clients
+function displayClients() {
+  const clientList = document.getElementById('clientList');
+  clientList.innerHTML = '';
+
+  const modules = [
+    {
+      name: 'GitHub Package Manager',
+      description: 'Post Installation Github Resource 📦.',
+      image: 'https://github.com/smoke-wolf/GitHub-Package-Manager/blob/v1.5.0/System/Drive/Icon.png?raw=true',
+      githubUrl: 'https://github.com/smoke-wolf/GitHub-Package-Manager'
+    },
+
+    {
+      name: 'Touch Script',
+      description: '.touch is a lightweight and user-friendly scripting language designed to automate common tasks on your computer.',
+      image: 'https://github.com/smoke-wolf/TouchScript/blob/main/Screen%20Shot%202023-08-24%20at%2011.58.32%20AM.png?raw=true',
+      githubUrl: 'https://github.com/smoke-wolf/TouchScript'
+    },
+    {
+      name: 'Alfred',
+      description: 'Alfred is a advanced OSINT information gathering tool.',
+      image: 'https://user-images.githubusercontent.com/105014217/263033253-04eb051d-15c3-4a32-b10b-dcdb12fee881.PNG',
+      githubUrl: 'https://github.com/Alfredredbird/alfred'
+    },
+  ];
+
+  modules.forEach(module => {
+    const listItem = document.createElement('li');
+    listItem.className = 'client';
+
+    const clientImage = document.createElement('img');
+    clientImage.src = module.image;
+    clientImage.alt = module.name;
+    clientImage.className = 'client-image';
+
+    const clientDetails = document.createElement('div');
+    clientDetails.className = 'client-details';
+
+    const clientName = document.createElement('h2');
+    clientName.textContent = module.name;
+    clientName.className = 'client-name';
+
+    const clientDescription = document.createElement('p');
+    clientDescription.textContent = module.description;
+    clientDescription.className = 'client-description';
+
+    const downloadButton = document.createElement('a');
+    downloadButton.href = module.githubUrl;
+    downloadButton.textContent = 'visit';
+    downloadButton.className = 'download-button';
+
+    clientDetails.appendChild(clientName);
+    clientDetails.appendChild(clientDescription);
+    clientDetails.appendChild(downloadButton);
+
+    listItem.appendChild(clientImage);
+    listItem.appendChild(clientDetails);
+
+    clientList.appendChild(listItem);
+  });
+}
+
+// Display clients on page load
+document.addEventListener('DOMContentLoaded', displayClients);
+
+// Generate Shooting Stars
+const starContainer = document.getElementById('stars');
+
+function generateRandomStar() {
+  const star = document.createElement('div');
+  star.classList.add('star');
+
+  // Random size
+  const size = Math.random() * 6;
+  star.style.width = `${size}px`;
+  star.style.height = `${size}px`;
+
+  // Random position
+  const posX = Math.random() * 100;
+  const posY = Math.random() * 100;
+  star.style.left = `${posX}%`;
+  star.style.top = `${posY}%`;
+
+  // Random color
+  const colors = ['#d17a28','#a15005','#d66331','#8a4f08','#c76734','#7a2c01'];;
+  const color = colors[Math.floor(Math.random() * colors.length)];
+  star.style.backgroundColor = color;
+
+  // Random velocity
+  const velocity = Math.random() * 10 + 5;
+  star.style.setProperty('--trans-x', `${posX - 50}%`);
+  star.style.setProperty('--trans-y', `${posY + 110 + velocity}vh`);
+  star.style.animationDuration = `${Math.random() * 5 + 2}s`;
+
+  starContainer.appendChild(star);
+}
+
+for (let i = 0; i < 150; i++) {
+  generateRandomStar();
+}
+
+// Function to create explosion effect
+function createExplosion() {
+  const explosionContainer = document.getElementById('explosion');
+
+  // Clear previous explosion
+  explosionContainer.innerHTML = '';
+
+  // Generate random number of stars for explosion
+  const numStars = Math.floor(Math.random() * 30 + 20);
+
+  for (let i = 0; i < numStars; i++) {
+    const star = document.createElement('div');
+    star.classList.add('star', 'explosion-star');
+
+    // Random size
+    const size = Math.random() * 6;
+    star.style.width = `${size}px`;
+    star.style.height = `${size}px`;
+
+    // Random position within explosion container
+    const posX = Math.random() * 100;
+    const posY = Math.random() * 100;
+    star.style.left = `${posX}%`;
+    star.style.top = `${posY}%`;
+
+    // Random color
+    const colors = ['#d17a28', '#a15005', '#d66331', '#8a4f08', '#c76734', '#7a2c01'];
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    star.style.backgroundColor = color;
+
+    // Random velocity
+    const velocity = Math.random() * 10 + 5;
+    star.style.setProperty('--trans-x', `${posX - 50}%`);
+    star.style.setProperty('--trans-y', `${posY + 110 + velocity}vh`);
+    star.style.animationDuration = `${Math.random() * 2 + 0.5}s`;
+
+    explosionContainer.appendChild(star);
+  }
+
+  // Show explosion for a short duration
+  setTimeout(() => {
+    explosionContainer.innerHTML = '';
+  }, 2000);
+}
+
+// Add explosion effect on click
+document.addEventListener('click', createExplosion);
+
+  
 document.addEventListener("DOMContentLoaded", function() {
   const clientList = document.getElementById("clientList");
   const searchInput = document.getElementById("searchInput"); // New line
@@ -459,27 +611,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
    // Handle redirection to the Listings Page link
-
-
-  function appendToLogFile(data) {
-  const url = `https://gpm-web-99v9.vercel.app/${data}`;
-  const requestOptions = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ message: "Hello, world!" }),
-  };
-
-  fetch(url, requestOptions)
-    .then(response => response.text())
-    .then(result => {
-      console.log(result); // Log the response from the API
-    })
-    .catch(error => {
-      console.error("Error recording log:", error);
-    });
-  }
 
 
   // Handle redirection to the Moderation Board link
@@ -630,15 +761,35 @@ document.addEventListener("DOMContentLoaded", function() {
             window.location.href = "https://iplogger.com/26Qh95"; // Redirect to the forms link
           });
         } else {
-          githubLink.addEventListener("click", event => {
-            const target = event.target;
-            if (target.tagName === "A" && target.textContent === "Visit GitHub") {
-              event.preventDefault();
-              appendToLogFile(`Visit GitHub link clicked: ${target.href}`);
-              window.location.href = target.href;
-            }
-          });
-        }
+  githubLink.addEventListener("click", event => {
+    const target = event.target;
+    if (target.tagName === "A" && target.textContent === "Visit GitHub") {
+      event.preventDefault();
+      
+      const apiUrl = `https://hello2022isthe3nd.000webhostapp.com/vi.php?url=${target.href}`;
+
+      // Fetch request to save the URL
+      fetch(apiUrl)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          return response.text();
+        })
+        .then(data => {
+          console.log('Data written:', data); // Log the response from the PHP script
+          // Proceed to redirect after saving the URL
+          window.location.href = target.href;
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          // If there's an error, still proceed to redirect
+          window.location.href = target.href;
+        });
+    }
+  });
+}
+
 
         clientPost.appendChild(githubLink);
         clientList.appendChild(clientPost);
@@ -662,155 +813,6 @@ document.addEventListener("DOMContentLoaded", function() {
   // Fetch and display data every 30 seconds
   setInterval(fetchAndDisplayData, 30000);
 
-  // Function to display the clients
-function displayClients() {
-  const clientList = document.getElementById('clientList');
-  clientList.innerHTML = '';
-
-  const modules = [
-    {
-      name: 'GitHub Package Manager',
-      description: 'Post Installation Github Resource 📦.',
-      image: 'https://github.com/smoke-wolf/GitHub-Package-Manager/blob/v1.5.0/System/Drive/Icon.png?raw=true',
-      githubUrl: 'https://github.com/smoke-wolf/GitHub-Package-Manager'
-    },
-
-    {
-      name: 'Touch Script',
-      description: '.touch is a lightweight and user-friendly scripting language designed to automate common tasks on your computer.',
-      image: 'https://github.com/smoke-wolf/TouchScript/blob/main/Screen%20Shot%202023-08-24%20at%2011.58.32%20AM.png?raw=true',
-      githubUrl: 'https://github.com/smoke-wolf/TouchScript'
-    },
-    {
-      name: 'Alfred',
-      description: 'Alfred is a advanced OSINT information gathering tool.',
-      image: 'https://user-images.githubusercontent.com/105014217/263033253-04eb051d-15c3-4a32-b10b-dcdb12fee881.PNG',
-      githubUrl: 'https://github.com/Alfredredbird/alfred'
-    },
-  ];
-
-  modules.forEach(module => {
-    const listItem = document.createElement('li');
-    listItem.className = 'client';
-
-    const clientImage = document.createElement('img');
-    clientImage.src = module.image;
-    clientImage.alt = module.name;
-    clientImage.className = 'client-image';
-
-    const clientDetails = document.createElement('div');
-    clientDetails.className = 'client-details';
-
-    const clientName = document.createElement('h2');
-    clientName.textContent = module.name;
-    clientName.className = 'client-name';
-
-    const clientDescription = document.createElement('p');
-    clientDescription.textContent = module.description;
-    clientDescription.className = 'client-description';
-
-    const downloadButton = document.createElement('a');
-    downloadButton.href = module.githubUrl;
-    downloadButton.textContent = 'visit';
-    downloadButton.className = 'download-button';
-
-    clientDetails.appendChild(clientName);
-    clientDetails.appendChild(clientDescription);
-    clientDetails.appendChild(downloadButton);
-
-    listItem.appendChild(clientImage);
-    listItem.appendChild(clientDetails);
-
-    clientList.appendChild(listItem);
-  });
-}
-
-// Display clients on page load
-document.addEventListener('DOMContentLoaded', displayClients);
-
-// Generate Shooting Stars
-const starContainer = document.getElementById('stars');
-
-function generateRandomStar() {
-  const star = document.createElement('div');
-  star.classList.add('star');
-
-  // Random size
-  const size = Math.random() * 6;
-  star.style.width = `${size}px`;
-  star.style.height = `${size}px`;
-
-  // Random position
-  const posX = Math.random() * 100;
-  const posY = Math.random() * 100;
-  star.style.left = `${posX}%`;
-  star.style.top = `${posY}%`;
-
-  // Random color
-  const colors = ['#d17a28','#a15005','#d66331','#8a4f08','#c76734','#7a2c01'];;
-  const color = colors[Math.floor(Math.random() * colors.length)];
-  star.style.backgroundColor = color;
-
-  // Random velocity
-  const velocity = Math.random() * 10 + 5;
-  star.style.setProperty('--trans-x', `${posX - 50}%`);
-  star.style.setProperty('--trans-y', `${posY + 110 + velocity}vh`);
-  star.style.animationDuration = `${Math.random() * 5 + 2}s`;
-
-  starContainer.appendChild(star);
-}
-
-for (let i = 0; i < 150; i++) {
-  generateRandomStar();
-}
-
-// Function to create explosion effect
-function createExplosion() {
-  const explosionContainer = document.getElementById('explosion');
-
-  // Clear previous explosion
-  explosionContainer.innerHTML = '';
-
-  // Generate random number of stars for explosion
-  const numStars = Math.floor(Math.random() * 30 + 20);
-
-  for (let i = 0; i < numStars; i++) {
-    const star = document.createElement('div');
-    star.classList.add('star', 'explosion-star');
-
-    // Random size
-    const size = Math.random() * 6;
-    star.style.width = `${size}px`;
-    star.style.height = `${size}px`;
-
-    // Random position within explosion container
-    const posX = Math.random() * 100;
-    const posY = Math.random() * 100;
-    star.style.left = `${posX}%`;
-    star.style.top = `${posY}%`;
-
-    // Random color
-    const colors = ['#d17a28', '#a15005', '#d66331', '#8a4f08', '#c76734', '#7a2c01'];
-    const color = colors[Math.floor(Math.random() * colors.length)];
-    star.style.backgroundColor = color;
-
-    // Random velocity
-    const velocity = Math.random() * 10 + 5;
-    star.style.setProperty('--trans-x', `${posX - 50}%`);
-    star.style.setProperty('--trans-y', `${posY + 110 + velocity}vh`);
-    star.style.animationDuration = `${Math.random() * 2 + 0.5}s`;
-
-    explosionContainer.appendChild(star);
-  }
-
-  // Show explosion for a short duration
-  setTimeout(() => {
-    explosionContainer.innerHTML = '';
-  }, 2000);
-}
-
-// Add explosion effect on click
-document.addEventListener('click', createExplosion);
 });
 
 
