@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>User Listings</title>
   <style>
-    .container {
+       .container {
       text-align: left;
       max-width: 800px;
       margin: 0 auto;
@@ -130,6 +130,35 @@
     input:checked + .slider:before {
       transform: translateX(20px);
     }
+
+    /* Dark-themed background */
+    body {
+      background-color: #111;
+      color: #fff;
+    }
+
+    /* Styling for delete 'x' */
+    .delete-entry {
+      position: relative;
+      display: inline-block;
+    }
+
+    .delete-entry .delete-btn {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      width: 20px;
+      height: 20px;
+      background-color: #ff0000;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      text-align: center;
+      line-height: 20px;
+      font-weight: bold;
+      font-size: 14px;
+    }
   </style>
 </head>
 <body>
@@ -169,12 +198,25 @@
           listingsContainer.innerHTML = '';
 
           if (data && data.success) {
-            const listings = data.listings || [];
-            listings.forEach((listing, index) => {
+            const listings = data.names || [];
+            listings.forEach((name, index) => {
               const listingDiv = document.createElement('div');
               listingDiv.classList.add('listing');
-              listingDiv.innerHTML = `<span>${listing}</span>`;
-              listingsContainer.appendChild(listingDiv);
+              listingDiv.innerHTML = `<span>${index}: ${name}</span>`;
+              
+              const deleteButton = document.createElement('button');
+              deleteButton.classList.add('delete-btn');
+              deleteButton.innerText = 'x';
+              deleteButton.onclick = function () {
+                deleteUserListing(index);
+              };
+              
+              const deleteEntry = document.createElement('div');
+              deleteEntry.classList.add('delete-entry');
+              deleteEntry.appendChild(listingDiv);
+              deleteEntry.appendChild(deleteButton);
+              
+              listingsContainer.appendChild(deleteEntry);
             });
           } else {
             const responseMessage = document.createElement('div');
