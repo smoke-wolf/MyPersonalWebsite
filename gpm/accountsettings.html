@@ -78,6 +78,7 @@ h1 {
       <ul>
         <li><a href="#" id="changePassword">Change Password</a></li>
         <li><a href="#" id="deleteAccount">Delete Account</a></li>
+        <li><a href='#' id="ListingCtr">Your Listings</a></li>
       </ul>
     </div>
     <div class="settings-content" id="settingsContent">
@@ -90,17 +91,25 @@ h1 {
       const changePasswordLink = document.getElementById("changePassword");
       const deleteAccountLink = document.getElementById("deleteAccount");
       const settingsContent = document.getElementById("settingsContent");
-
+      const settingsContent = document.getElementById("ListingCtr");
+      
       // Function to load content into settingsContent div
       function loadContent(url) {
         settingsContent.innerHTML = `<iframe src="${url}" frameborder="0" width="100%" height="500px"></iframe>`;
-      }
+      } 
 
       // Change Password AJAX call
       changePasswordLink.addEventListener("click", function (event) {
         event.preventDefault();
         const changePasswordURL = 'https://smoke-wolf.vercel.app/gpm/ChangePassword.html';
         loadContent(changePasswordURL);
+      });
+
+      //  AJAX call
+      chk.addEventListener("click", function (event) {
+        event.preventDefault();
+        const chgL = "https://smoke-wolf.vercel.app/gpm/delete_listing.html";
+        loadContent(chg);
       });
 
       // Delete Account AJAX call
