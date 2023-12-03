@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>User Listings</title>
-  <style>
-       .container {
+    <style>
+    .container {
       text-align: left;
       max-width: 800px;
       margin: 0 auto;
@@ -130,6 +130,10 @@
     input:checked + .slider:before {
       transform: translateX(20px);
     }
+  </style>
+  <style>
+    /* Your previous styles */
+    /* ... */
 
     /* Dark-themed background */
     body {
@@ -141,12 +145,13 @@
     .delete-entry {
       position: relative;
       display: inline-block;
+      margin-bottom: 5px;
     }
 
     .delete-entry .delete-btn {
       position: absolute;
-      top: -5px;
-      right: -5px;
+      top: 0;
+      right: 0;
       width: 20px;
       height: 20px;
       background-color: #ff0000;
@@ -197,9 +202,8 @@
           const listingsContainer = document.getElementById('listings');
           listingsContainer.innerHTML = '';
 
-          if (data && data.success) {
-            const listings = data.names || [];
-            listings.forEach((name, index) => {
+          if (data && data.success && data.names && data.names.length > 0) {
+            data.names.forEach((name, index) => {
               const listingDiv = document.createElement('div');
               listingDiv.classList.add('listing');
               listingDiv.innerHTML = `<span>${index}: ${name}</span>`;
