@@ -86,39 +86,31 @@ h1 {
     </div>
   </div>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const changePasswordLink = document.getElementById("changePassword");
-      const deleteAccountLink = document.getElementById("deleteAccount");
-      const settingsContent = document.getElementById("settingsContent");
-      const crr = document.getElementById("ListingCtr");
-      
-      // Function to load content into settingsContent div
-      function loadContent(url) {
-        settingsContent.innerHTML = `<iframe src="${url}" frameborder="0" width="100%" height="500px"></iframe>`;
-      } 
+    <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const changePasswordLink = document.getElementById("changePassword");
+    const deleteAccountLink = document.getElementById("deleteAccount");
+    const settingsContent = document.getElementById("settingsContent");
+    
+    // Function to load content into settingsContent div
+    function loadContent(url) {
+      settingsContent.innerHTML = `<iframe src="${url}" frameborder="0" width="100%" height="500px"></iframe>`;
+    } 
 
-      // Change Password AJAX call
-      changePasswordLink.addEventListener("click", function (event) {
-        event.preventDefault();
-        const changePasswordURL = 'https://smoke-wolf.vercel.app/gpm/ChangePassword.html';
-        loadContent(changePasswordURL);
-      });
-
-      //  AJAX call
-      chk.addEventListener("click", function (event) {
-        event.preventDefault();
-        const chgL = "https://smoke-wolf.vercel.app/gpm/delete_listing.html";
-        loadContent(chg);
-      });
-
-      // Delete Account AJAX call
-      deleteAccountLink.addEventListener("click", function (event) {
-        event.preventDefault();
-        const deleteAccountURL = 'https://smoke-wolf.vercel.app/gpm/deleteaccount.html';
-        loadContent(deleteAccountURL);
-      });
+    // Change Password AJAX call
+    changePasswordLink.addEventListener("click", function (event) {
+      event.preventDefault();
+      const changePasswordURL = 'https://smoke-wolf.vercel.app/gpm/ChangePassword.html';
+      loadContent(changePasswordURL);
     });
-  </script>
+
+    // Delete Account AJAX call
+    deleteAccountLink.addEventListener("click", function (event) {
+      event.preventDefault();
+      const deleteAccountURL = 'https://smoke-wolf.vercel.app/gpm/deleteaccount.html';
+      loadContent(deleteAccountURL);
+    });
+  });
+</script>
 </body>
 </html>
