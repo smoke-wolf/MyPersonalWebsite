@@ -91,11 +91,19 @@ h1 {
     const changePasswordLink = document.getElementById("changePassword");
     const deleteAccountLink = document.getElementById("deleteAccount");
     const settingsContent = document.getElementById("settingsContent");
+    const setc = document.getElementById("atech");
     
     // Function to load content into settingsContent div
     function loadContent(url) {
       settingsContent.innerHTML = `<iframe src="${url}" frameborder="0" width="100%" height="500px"></iframe>`;
     } 
+
+    // Change Password AJAX call
+    ccg.addEventListener("click", function (event) {
+      event.preventDefault();
+      const changePasswordURL = 'https://smoke-wolf.vercel.app/gpm/ChangePassword.html';
+      loadContent(changePasswordURL);
+    });
 
     // Change Password AJAX call
     changePasswordLink.addEventListener("click", function (event) {
