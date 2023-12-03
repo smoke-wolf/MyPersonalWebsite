@@ -207,7 +207,7 @@
           listingsContainer.innerHTML = '';
 
           if (data && data.success && data.names && data.names.length > 0) {
-            data.names.forEach((name, index) => {
+            data.names.forEach(({ index, name }) => {
               const listingDiv = document.createElement('div');
               listingDiv.classList.add('listing');
               listingDiv.innerHTML = `<span>${index}: ${name}</span>`;
