@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GHPM</title>
+    <style>
+      body {
+        background-color: #121212;
+        color: #ffa500; /* Orangy-dark text color */
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      header {
+        background-color: #333; /* Dark header background color */
+        padding: 1em;
+        text-align: center;
+      }
+
+      header h1 {
+        color: #ffa500; /* Orangy-dark heading color */
+        margin: 0;
+      }
+
+      .container {
+        text-align: center;
+        max-width: 800px;
+        margin: auto;
+        flex-grow: 1;
+        padding: 20px;
+      }
+
+      .box {
+        background-color: #222; /* Dark box background color */
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+      }
+
+      footer {
+        background-color: #333; /* Dark footer background color */
+        padding: 1em;
+        text-align: center;
+      }
+
+      footer p {
+        margin: 0;
+      }
+      .link {
+        font-size: 120%;
+        color: #ffa600a8;
+      }
+      .send_it_off {
+        padding: 10px;
+        color: white;
+        background-color: orange;
+        border-radius: 5px;
+      }
+      input {
+        color: black;
+        padding: 6px;
+        border-radius: 5px;
+      }
+        
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>🎉 Github Package Manager 🎉</h1>
+      <br />
+      <div class="link">
+        <a class="link" href="/">Home</a> |
+        <a class="link" href="/login">Download</a> |
+        <a class="link" href="https://github.com/smoke-wolf/GitHub-Package-Manager">GitHub</a> |
+        <a class="link" href="https://smoke-wolf.vercel.app/gpm/docs.html"
+          >Documentation</a
+        >
+        |
+        <a class="link" href="/contact">Contact</a>
+      </div>
+    </header>
+<center><h1>Create Account</h1></center>
+    <div class="container">
+      <div class="box">
+
+        <input onchange="update(this)" id="username" placeholder="Username"></input><br>
+        <input onchange="update(this)" id="password" type="password" placeholder="Password"></input><br>
+        <input onchange="update(this)" id="email" placeholder="Your Email"></input><br>
+        <input onchange="update(this)" id= "country" placeholder="Your Country"></input><br><br>
+      <button id="iut" onclick="ready_to_go(this)" class="send_it_off">Download!</button>
+      </div>
+    </div>
+   
+
+
+    <footer>Designed by smoke-wolf | 2023 GHPM</footer>
+  </body>
+
+  <script>
+     // Define some random stuff here
+  let u = "";
+  let p = "";
+  let e = "";
+  let c = "";
+  
+  // Disable submit button by default.
+  document.getElementById('iut').disabled = true;
+  
+  function update(self) {
+      if (self.id === "username") {
+          u = self.value;
+      }
+      if (self.id === "password") {
+          p = self.value;
+      }
+      if (self.id === "email") {
+          e = self.value;
+      }
+      if (self.id === "country") {
+          c = self.value;
+      }
+  
+      // Check if all elements have been filled in!
+      if (u !== "" && p !== "" && e !== "" && c !== "") {
+          document.getElementById('iut').disabled = false;
+      } else {
+          document.getElementById('iut').disabled = true;
+      }
+  }
+  
+  function ready_to_go(button) {
+      // Extract form data:
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      const email = document.getElementById("email").value;
+      const country = document.getElementById("country").value;
+  
+      // Build the URL:
+      const URL = `https://hello2022isthe3nd.000webhostapp.com/createGHPMaccount.php?username=${username}&password=${password}&country=${country}&email=${email}`;
+  
+      // Bring the user to download URL (Downloads if valid, shows error if not)
+      window.location.href = URL;
+  
+       //You might want to remove or modify the lines below as they won't have any effect <<< all full of lies
+       button.innerHTML = "Creating . . .";
+       button.style.backgroundColor = "green";
+  
+      // Bring the client to the documentation page as it downloads.
+      setTimeout(function () {
+          window.location.href = "https://smoke-wolf.vercel.app/gpm/Login.html";
+      }, 3000); // wait a sec.... (legit, dont question.,.,.,.,)
+  }
+
+  </script>
+</html>
