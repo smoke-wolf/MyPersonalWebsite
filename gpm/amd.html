@@ -180,26 +180,25 @@
                             } else {
                                 // For other buttons, split data into segments based on "Data1="
                                 const segments = data.split("Data1=");
+
+                                const resultDiv = document.getElementById('result');
+                                resultDiv.classList.add('table-container');
+                                
                                 segments.forEach(segment => {
                                     const segmentData = segment.split("\n");
                                     const date = segmentData.find(line => line.startsWith("Data3="));
-
+                                
                                     if (date) {
                                         const formattedDate = date.replace("Data3=", "").trim();
                                         const div = document.createElement("div");
-                                        div.innerHTML = `<h2>${formattedDate}</h2>`;
-
-                                        for (let i = 1; i <= 5; i++) {
-                                            const dataKey = `Data${i}=`;
-                                            const dataValue = segmentData.find(line => line.startsWith(dataKey));
-                                            if (dataValue) {
-                                                const formattedData = dataValue.replace(dataKey, "").trim();
-                                                div.innerHTML += `<details><summary>${dataKey}</summary><p>${formattedData}</p></details>`;
-                                            }
-                                        }
-
+                                        div.className = 'data-entry';
+                                        div.innerHTML = `<span>[${formattedDate}] - [${segmentData.find(line => line.startsWith("Data2=")).replace("Data2=", "").trim()}]</span>`;
+                                        div.innerHTML += `<span>[${segmentData.find(line => line.startsWith("Data3=")).replace("Data3=", "").trim()}]</span>`;
+                                        div.innerHTML += `<span>--</span>`;
+                                        div.innerHTML += `<span>[${segmentData.find(line => line.startsWith("Data5=")).replace("Data5=", "").trim()}]</span>`;
                                         resultDiv.appendChild(div);
                                     }
+                                });
                                 });
                             }
                         } else {
