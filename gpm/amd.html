@@ -119,13 +119,33 @@
     </script>
   
 </body>
-  <script>
+ <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const username = urlParams.get('username');
+    const authToken = urlParams.get('token');
+    
     const urlParams = new URLSearchParams(window.location.search);
     const username = urlParams.get('username');
     const authToken = urlParams.get('token');
 
     if (!username || !authToken) {
-        alert("Username and token are required in the URL.");
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = "<p>Error 403: Username and token are required in the URL.</p>";
+        resultDiv.style.color = "#ff0000"; // Set color to red for emphasis
+        resultDiv.style.textAlign = "center"; // Align text to center
+        resultDiv.style.marginTop = "20px"; // Add some top margin
+        resultDiv.style.fontSize = "1.2rem"; // Adjust font size if needed
+        resultDiv.style.fontWeight = "bold"; // Make text bold for emphasis
+        resultDiv.style.padding = "10px"; // Add padding for better visibility
+        resultDiv.style.backgroundColor = "#f8d7da"; // Set background color for emphasis
+        resultDiv.style.border = "1px solid #f5c6cb"; // Add a border for visibility
+        resultDiv.style.borderRadius = "5px"; // Add rounded corners for aesthetics
+        resultDiv.style.width = "80%"; // Adjust width as needed
+        resultDiv.style.maxWidth = "600px"; // Set maximum width
+
+        // Set the HTTP status code to 403
+        const response = new Response('<p>Error 403: Username and token are required in the URL.</p>', { status: 403 });
+        throw response;
     } else {
         const buttons = document.querySelectorAll('button');
         const resultDiv = document.getElementById('result');
@@ -156,8 +176,31 @@
                                 words.forEach(word => {
                                     resultDiv.innerHTML += `<p>\n ${word}<br></p>`;
                                 });
+                            } else if (endpoint === "eula-button") {
+                                // Display only data3 and data5 from the logs
+                                const segments = data.split("Data1=");
+                                segments.forEach(segment => {
+                                    const segmentData = segment.split("\n");
+                                    const date = segmentData.find(line => line.startsWith("Data3="));
+
+                                    if (date) {
+                                        const formattedDate = date.replace("Data3=", "").trim();
+                                        const div = document.createElement("div");
+                                        div.innerHTML = `<h2>${formattedDate}</h2>`;
+                                        
+                                        const data3 = segmentData.find(line => line.startsWith("Data3="));
+                                        const data5 = segmentData.find(line => line.startsWith("Data5="));
+
+                                        if (data3 && data5) {
+                                            div.innerHTML += `<details><summary>Data3</summary><p>${data3.replace("Data3=", "").trim()}</p></details>`;
+                                            div.innerHTML += `<details><summary>Data5</summary><p>${data5.replace("Data5=", "").trim()}</p></details>`;
+                                        }
+
+                                        resultDiv.appendChild(div);
+                                    }
+                                });
                             } else {
-                                // Split data into segments based on "Data1="
+                                // For other buttons, split data into segments based on "Data1="
                                 const segments = data.split("Data1=");
                                 segments.forEach(segment => {
                                     const segmentData = segment.split("\n");
@@ -191,6 +234,7 @@
             });
         });
     }
+
 
     // Dark mode toggle
     let darkMode = false;
