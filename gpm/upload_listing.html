@@ -223,9 +223,7 @@
         <label for="password">Password:</label>
   <input type="password" id="token" name="password" required> <!-- Use type="password" -->
   
-      
-      <label for="index">Index:</label>
-      <input type="text" id="index" name="index" required>
+   
       
       <label for="name">Name:</label>
       <input type="text" id="name" name="name" required>
@@ -238,6 +236,15 @@
       
       <label for="githubUrl">GitHub URL:</label>
       <input type="text" id="githubUrl" name="githubUrl" required>
+      
+      <label for="tags">Tags:</label>
+      <select id="tags" name="tags" multiple>
+        <!-- Add more options as needed -->
+      </select>
+
+      <input type="text" id="customTag" placeholder="Add custom tag">
+      <button type="button" onclick="addTag()">Add Tag</button>
+
       
       <label for="additionalData">Additional Data:</label>
       <select id="additionalData" name="additionalData">
@@ -267,7 +274,21 @@
     <footer>Designed by Smoke-Wolf | 2023 GHPM</footer>
   </body>
 <script> 
-  
+  function addTag() {
+  const customTagInput = document.getElementById('customTag');
+  const customTagValue = customTagInput.value.trim();
+
+  if (customTagValue !== '') {
+    const selectTag = document.getElementById('tags');
+    const option = document.createElement('option');
+    option.value = customTagValue;
+    option.text = customTagValue;
+    selectTag.add(option);
+
+    customTagInput.value = ''; // Clear the input field after adding the tag
+  }
+}
+
   
   // Add this JavaScript to your existing script
 document.getElementById('articleForm').addEventListener('input', function(event) {
@@ -300,13 +321,38 @@ document.getElementById('articleForm').addEventListener('input', function(event)
       document.body.classList.toggle('dark-mode');
     });
 
-   document.getElementById('articleForm').addEventListener('submit', function(event) {
+  
+  // Function to add tags to the URL
+function addTag() {
+  const tagsSelect = document.getElementById('tags');
+  const customTagInput = document.getElementById('customTag');
+  const selectedTags = Array.from(tagsSelect.selectedOptions).map(option => option.value);
+  const customTag = customTagInput.value.trim();
+
+  if (customTag !== '' && !selectedTags.includes(customTag)) {
+    selectedTags.push(customTag);
+    const newOption = document.createElement('option');
+    newOption.value = customTag;
+    newOption.textContent = customTag;
+    tagsSelect.appendChild(newOption);
+  }
+
+  const urlParams = new URLSearchParams(window.location.search);
+  urlParams.set('tags', selectedTags.join(',')); // Set tags as a comma-separated string in the URL parameter
+  const newUrl = `${window.location.pathname}?${urlParams.toString()}`;
+
+  // Update the URL
+  window.history.pushState({}, '', newUrl);
+}
+// This function handles form submission
+// This function handles form submission
+document.getElementById('articleForm').addEventListener('submit', function(event) {
   event.preventDefault();
 
-  // Get form data
+  // Your existing code to get form values
   const username = document.getElementById('username').value;
   const password = document.getElementById('token').value;
-  const index = document.getElementById('index').value;
+  const index = 0;
   const name = document.getElementById('name').value;
   const description = document.getElementById('description').value;
   const image = document.getElementById('image').value;
@@ -314,17 +360,103 @@ document.getElementById('articleForm').addEventListener('input', function(event)
   const additionalData = document.getElementById('additionalData').value;
   const colour = document.getElementById('colorPicker').value; // Get the selected color
 
-  // Construct the URL with query parameters, including additionalData and colour
-  const url = `https://hello2022isthe3nd.000webhostapp.com/GitListingsUpload.php?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}&index=${encodeURIComponent(index)}&name=${encodeURIComponent(name)}&description=${encodeURIComponent(description)}&image=${encodeURIComponent(image)}&githubUrl=${encodeURIComponent(githubUrl)}&additionalData=${encodeURIComponent(additionalData)}&colour=${encodeURIComponent(colour)}`;
+  // Get the tags from the URL parameters
+  const urlParams = new URLSearchParams(window.location.search);
+  const tags = urlParams.get('tags');
 
-  // Display the URL for the user to click
-  const linkContainer = document.getElementById('linkContainer');
-  linkContainer.innerHTML = `<a href="${url}" target="_blank">Click here to submit the form</a>`;
+  // Construct the URL with query parameters, including additionalData, colour, and tags
+  const url = `https://hello2022isthe3nd.000webhostapp.com/GitListingsUpload.php?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}&index=${encodeURIComponent(index)}&name=${encodeURIComponent(name)}&description=${encodeURIComponent(description)}&image=${encodeURIComponent(image)}&githubUrl=${encodeURIComponent(githubUrl)}&additionalData=${encodeURIComponent(additionalData)}&colour=${encodeURIComponent(colour)}&tags=${encodeURIComponent(tags || '')}`;
+
+  // Open the constructed URL in a new tab
+  window.open(url, '_blank');
 });
 
 
+
   </script>
-  
+  <script>
+  document.getElementById('githubUrl').addEventListener('change', function(event) {
+  const repoUrl = event.target.value;
+
+  // Use the repoUrl to fetch repository data using GitHub API
+  fetch(`https://api.github.com/repos/${extractRepoInfo(repoUrl)}`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      // Autofill form fields with the retrieved data
+      document.getElementById('name').value = data.name || '';
+      document.getElementById('description').value = data.description || '';
+
+      // Use the repository name for Google image search
+      const repoName = data.name || '';
+
+      // Fetch image files from the repository
+      fetch(`https://api.github.com/repos/${extractRepoInfo(repoUrl)}/contents`)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(imagesData => {
+          // Filter for image files in the repository (you can adjust the logic for your requirements)
+          const imageFiles = imagesData.filter(item => {
+            return item.type === 'file' && (item.name.endsWith('.png') || item.name.endsWith('.jpg') || item.name.endsWith('.jpeg') || item.name.endsWith('.gif'));
+          });
+
+          // If multiple images found, create a popup to select an image
+          if (imageFiles.length > 0) {
+            createImageSelectionPopup(imageFiles, data.name, data.description);
+          } else {
+            console.error('No image found in the repository.');
+          }
+        })
+        .catch(error => {
+          console.error('Error fetching repository images:', error);
+        });
+      
+      document.getElementById('githubUrl').value = repoUrl || ''; // Autofill GitHub URL field
+    })
+    .catch(error => {
+      console.error('Error fetching repository data:', error);
+    });
+});
+
+let selectedImageUrl = ''; // Store selected image URL globally
+
+// Function to create a popup/modal for image selection
+function createImageSelectionPopup(images, repoName, repoDescription) {
+  const popup = window.open('', '_blank');
+}
+
+
+
+
+// Function to handle image selection in the popup
+function selectImage(imageUrl) {
+  selectedImageUrl = imageUrl;
+  document.getElementById('imageLink').value = selectedImageUrl || '';
+}
+
+// Function to copy image link to clipboard
+function copyImageLink() {
+  const imageLink = document.getElementById('imageLink');
+  imageLink.select();
+  document.execCommand('copy');
+  alert('Image link copied to clipboard!');
+}
+
+// Function to extract username and repository name from GitHub URL
+function extractRepoInfo(url) {
+  const parts = url.split('/');
+  return `${parts[parts.length - 2]}/${parts[parts.length - 1]}`;
+}
+
+  </script>
 </html>
     
     
