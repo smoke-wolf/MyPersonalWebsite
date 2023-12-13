@@ -117,9 +117,7 @@
         });
 
     </script>
-  
-</body>
-  <script>
+      <script>
     const urlParams = new URLSearchParams(window.location.search);
     const username = urlParams.get('username');
     const authToken = urlParams.get('token');
@@ -181,7 +179,6 @@
                                 });
                             } else {
                                 // For other buttons, split data into segments based on "Data1="
-                                // For other buttons, split data into segments based on "Data1="
                                 const segments = data.split("Data1=");
                                 segments.forEach(segment => {
                                     const segmentData = segment.split("\n");
@@ -203,6 +200,7 @@
 
                                         resultDiv.appendChild(div);
                                     }
+                                });
                             }
                         } else {
                             resultDiv.innerHTML = "<p>Error fetching data</p>";
@@ -215,8 +213,7 @@
         });
     }
 
-
-    // Dark mode toggle
+    // Dark mode toggle remains unchanged
     let darkMode = false;
 
     const toggleDarkMode = () => {
@@ -238,4 +235,7 @@
         }
     };
 </script>
+
+</body>
+
 </html>
