@@ -156,8 +156,32 @@
                                 words.forEach(word => {
                                     resultDiv.innerHTML += `<p>\n ${word}<br></p>`;
                                 });
+                            } else if (endpoint === "eula-button") {
+                                // Display only data3 and data5 from the logs
+                                const segments = data.split("Data1=");
+                                segments.forEach(segment => {
+                                    const segmentData = segment.split("\n");
+                                    const date = segmentData.find(line => line.startsWith("Data3="));
+
+                                    if (date) {
+                                        const formattedDate = date.replace("Data3=", "").trim();
+                                        const div = document.createElement("div");
+                                        div.innerHTML = `<h2>${formattedDate}</h2>`;
+                                        
+                                        const data3 = segmentData.find(line => line.startsWith("Data3="));
+                                        const data5 = segmentData.find(line => line.startsWith("Data5="));
+
+                                        if (data3 && data5) {
+                                            div.innerHTML += `<details><summary>Data3</summary><p>${data3.replace("Data3=", "").trim()}</p></details>`;
+                                            div.innerHTML += `<details><summary>Data5</summary><p>${data5.replace("Data5=", "").trim()}</p></details>`;
+                                        }
+
+                                        resultDiv.appendChild(div);
+                                    }
+                                });
                             } else {
-                                // Split data into segments based on "Data1="
+                                // For other buttons, split data into segments based on "Data1="
+                                // For other buttons, split data into segments based on "Data1="
                                 const segments = data.split("Data1=");
                                 segments.forEach(segment => {
                                     const segmentData = segment.split("\n");
@@ -179,7 +203,6 @@
 
                                         resultDiv.appendChild(div);
                                     }
-                                });
                             }
                         } else {
                             resultDiv.innerHTML = "<p>Error fetching data</p>";
@@ -191,6 +214,7 @@
             });
         });
     }
+
 
     // Dark mode toggle
     let darkMode = false;
