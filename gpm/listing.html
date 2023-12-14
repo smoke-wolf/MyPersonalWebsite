@@ -760,7 +760,7 @@ githubLink.addEventListener("click", async (event) => {
       // If fetch successful, open the link in a new tab
       window.open(item.githubUrl, '_blank');
     } else {
-      throw new Error(`Fetch error! Status: ${fetchResponse.status}`);
+      window.open(item.githubUrl, '_blank');
     }
   } catch (fetchError) {
     console.error("Error fetching data:", fetchError);
