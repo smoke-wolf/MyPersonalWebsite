@@ -1,25 +1,60 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Git Listings</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
-  <style>
+    <style>
     .blurred {
     filter: blur(50px); /* You can adjust the blur radius as needed */
     transition: filter 5.3s ease-in-out; /* Add a smooth transition effect */
     }
+      
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    /* Other styles for header */
+  }
 
-    /* Your existing CSS rules */
-    /* Add this CSS rule for the "Visit GitHub" link */
-    .github-link {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 5px 10px;
-      background-color: #007bff;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-    }
+  .button-container {
+    display: flex;
+    gap: 10px;
+  }
+
+  .add-button,
+  .reload-button {
+    background-color: rgba(255, 255, 255, 0.8); /* Adjust the last value for transparency */
+    padding: 10px 20px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    color: #333;
+    font-size: 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  }
+
+  .add-button:hover,
+  .reload-button:hover {
+    background-color: rgba(255, 255, 255, 0.6); /* Adjust the transparency on hover */
+    color: #000;
+    border-color: #000;
+  }
+
+  .github-link {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 15px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.github-link:hover {
+  background-color: #0056b3;
+}
+
   
     /* Your existing CSS rules */
     body {
@@ -350,14 +385,45 @@ a:hover {
   background-color: rgba(0, 0, 0, 0.2);
   color: #ccc;
 }
+#resultsContainer .client-post a#listingsLink,
+#resultsContainer .client-post a#Link,
+#resultsContainer .client-post a#analyticsLink,
+#resultsContainer .client-post a#moderationLink,
+#resultsContainer .client-post a#sLink {
+  display: inline-block;
+  padding: 8px 15px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+#resultsContainer .client-post a#listingsLink:hover,
+#resultsContainer .client-post a#Link:hover,
+#resultsContainer .client-post a#analyticsLink:hover,
+#resultsContainer .client-post a#moderationLink:hover,
+#resultsContainer .client-post a#sLink:hover {
+  background-color: #0056b3;
+}
 
   </style>
+  <title>Git Listings</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+
 </head>
 <body>
   <div id="stars"></div>
-  <header>
-      <h1>Git Listings</h1>
-    </header>
+<header>
+  <h1>Git Listings</h1>
+  <div class="button-container">
+    <button class="add-button" onclick="openNewTab('https://smoke-wolf.vercel.app/gpm/upload_listing.html')">Add your own</button>
+    <button class="reload-button" onclick="location.reload()">Reload</button>
+  </div>
+</header>
+
+
 
 
   <div id="container">
@@ -416,68 +482,72 @@ a:hover {
 <!-- Place this script block just before the closing </body> tag -->
 <!-- Place this script block just before the closing </body> tag -->
 <script>
-  
-  // Function to display the clients
+  function openNewTab(url) {
+    window.open(url, '_blank');
+  }
+// Function to display clients
 function displayClients() {
   const clientList = document.getElementById('clientList');
   clientList.innerHTML = '';
 
-  const modules = [
-    {
-      name: 'GitHub Package Manager',
-      description: 'Post Installation Github Resource 📦.',
-      image: 'https://github.com/smoke-wolf/GitHub-Package-Manager/blob/v1.5.0/System/Drive/Icon.png?raw=true',
-      githubUrl: 'https://github.com/smoke-wolf/GitHub-Package-Manager'
-    },
-
-    {
-      name: 'Touch Script',
-      description: '.touch is a lightweight and user-friendly scripting language designed to automate common tasks on your computer.',
-      image: 'https://github.com/smoke-wolf/TouchScript/blob/main/Screen%20Shot%202023-08-24%20at%2011.58.32%20AM.png?raw=true',
-      githubUrl: 'https://github.com/smoke-wolf/TouchScript'
-    },
-    {
-      name: 'Alfred',
-      description: 'Alfred is a advanced OSINT information gathering tool.',
-      image: 'https://user-images.githubusercontent.com/105014217/263033253-04eb051d-15c3-4a32-b10b-dcdb12fee881.PNG',
-      githubUrl: 'https://github.com/Alfredredbird/alfred'
-    },
-  ];
-
   modules.forEach(module => {
-    const listItem = document.createElement('li');
-    listItem.className = 'client';
-
-    const clientImage = document.createElement('img');
-    clientImage.src = module.image;
-    clientImage.alt = module.name;
-    clientImage.className = 'client-image';
-
-    const clientDetails = document.createElement('div');
-    clientDetails.className = 'client-details';
-
-    const clientName = document.createElement('h2');
-    clientName.textContent = module.name;
-    clientName.className = 'client-name';
-
-    const clientDescription = document.createElement('p');
-    clientDescription.textContent = module.description;
-    clientDescription.className = 'client-description';
-
-    const downloadButton = document.createElement('a');
-    downloadButton.href = module.githubUrl;
-    downloadButton.textContent = 'visit';
-    downloadButton.className = 'download-button';
-
-    clientDetails.appendChild(clientName);
-    clientDetails.appendChild(clientDescription);
-    clientDetails.appendChild(downloadButton);
-
-    listItem.appendChild(clientImage);
-    listItem.appendChild(clientDetails);
-
+    const listItem = createListItem(module);
     clientList.appendChild(listItem);
   });
+}
+
+// Helper function to create client list item
+function createListItem(module) {
+  const listItem = document.createElement('li');
+  listItem.className = 'client';
+
+  const clientImage = createImage(module);
+  const clientDetails = createClientDetails(module);
+
+  listItem.appendChild(clientImage);
+  listItem.appendChild(clientDetails);
+
+  return listItem;
+}
+
+// Helper function to create client image
+function createImage(module) {
+  const clientImage = document.createElement('img');
+  clientImage.src = module.image;
+  clientImage.alt = module.name;
+  clientImage.className = 'client-image';
+  return clientImage;
+}
+
+// Helper function to create client details
+function createClientDetails(module) {
+  const clientDetails = document.createElement('div');
+  clientDetails.className = 'client-details';
+
+  const clientName = document.createElement('h2');
+  clientName.textContent = module.name;
+  clientName.className = 'client-name';
+
+  const clientDescription = document.createElement('p');
+  clientDescription.textContent = module.description;
+  clientDescription.className = 'client-description';
+
+  const downloadButton = createDownloadButton(module);
+
+  clientDetails.appendChild(clientName);
+  clientDetails.appendChild(clientDescription);
+  clientDetails.appendChild(downloadButton);
+
+  return clientDetails;
+}
+
+// Helper function to create download button
+function createDownloadButton(module) {
+  const downloadButton = document.createElement('a');
+  downloadButton.href = module.githubUrl;
+  downloadButton.textContent = 'visit';
+  downloadButton.className = 'download-button';
+  return downloadButton;
 }
 
 // Display clients on page load
@@ -568,251 +638,161 @@ function createExplosion() {
 document.addEventListener('click', createExplosion);
 
   
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   const clientList = document.getElementById("clientList");
-  const searchInput = document.getElementById("searchInput"); // New line
+  const searchInput = document.getElementById("searchInput");
 
-
-  // Function to apply the blur class to all client posts except the provided one
   function applyBlurToOtherPosts(exceptPost) {
-    clientPosts.forEach(post => {
+    clientPosts.forEach((post) => {
       if (post !== exceptPost) {
         post.classList.add("blurred");
       }
     });
   }
 
-  // Function to remove the blur class from all client posts
   function removeBlurFromAllPosts() {
-    clientPosts.forEach(post => {
+    clientPosts.forEach((post) => {
       post.classList.remove("blurred");
     });
   }
 
   const clientPosts = document.querySelectorAll(".client-post");
 
-  // Function to handle click event
   function handleClick(event) {
     const clickedPost = event.currentTarget;
-
-    // If the clicked post is already blurred, remove blur from all posts
     if (clickedPost.classList.contains("blurred")) {
       removeBlurFromAllPosts();
     } else {
-      // Otherwise, apply blur to all posts except the clicked post
       applyBlurToOtherPosts(clickedPost);
     }
   }
 
-  // Attach click events to each client post
-  clientPosts.forEach(post => {
+  clientPosts.forEach((post) => {
     post.addEventListener("click", handleClick);
   });
 
+  const linksToHandle = ["moderationLink", "listingsLink", "analyticsLink", "sLink", "Link"];
 
-   // Handle redirection to the Listings Page link
-
-
-  // Handle redirection to the Moderation Board link
-  const moderationLink = document.getElementById("moderationLink");
-  if (moderationLink) {
-    moderationLink.addEventListener("click", event => {
-      event.preventDefault(); // Prevent the default link behavior
-      const linkUrl = moderationLink.getAttribute("href"); // Get the link URL
-      window.location.href = linkUrl; // Redirect to the link URL
-    });
-  }
-  const listingsLink = document.getElementById("listingsLink");
-  if (listingsLink) {
-    listingsLink.addEventListener("click", event => {
-      event.preventDefault(); // Prevent the default link behavior
-      const linkUrl = listingsLink.getAttribute("href"); // Get the link URL
-      window.location.href = linkUrl; // Redirect to the link URL
-    });
-  }
-
-  const analyticsLink = document.getElementById("analyticsLink");
-  if (analyticsLink) {
-    analyticsLink.addEventListener("click", event => {
-      event.preventDefault(); // Prevent the default link behavior
-      const linkUrl = analyticsLink.getAttribute("href"); // Get the link URL
-      window.location.href = linkUrl; // Redirect to the link URL
-    });
-  }
-  const sLink = document.getElementById("sLink");
-  if (sLink) {
-    sLink.addEventListener("click", event => {
-      event.preventDefault(); // Prevent the default link behavior
-      const linkUrl = sLink.getAttribute("href"); // Get the link URL
-      window.location.href = linkUrl; // Redirect to the link URL
-    });
-  }
-  const Link = document.getElementById("Link");
-  if (Link) {
-    Link.addEventListener("click", event => {
-      event.preventDefault(); // Prevent the default link behavior
-      const linkUrl = Link.getAttribute("href"); // Get the link URL
-      window.location.href = linkUrl; // Redirect to the link URL
-    });
-  }
-
-  async function fetchAndDisplayData() {
-    try {
-      const response = await fetch("https://hello2022isthe3nd.000webhostapp.com/data.php");
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-
-      const data = await response.json();
-      console.log(response.status);
-      // Clear the previous content
-      clientList.innerHTML = '';
-
-      data.forEach(item => {
-      const clientPost = document.createElement("div");
-      clientPost.className = "client-post";
-
-
-      // Set a specific width for the client-post div (adjust the value as needed)
-      clientPost.style.width = "200px"; // For example, set to 200px width
-      // Check if the 'colour' field is present in the data
-      if (item.colour) {
-        // Apply the specified color for the border
-        clientPost.style.border = `2px solid ${item.colour}`;
-        clientPost.style.backgroundColor = "rgba(36, 35, 34, 0.60)"; // Light gray with 80% opacity
-
-      } else {
-        // Apply default border color
-        clientPost.style.border = "2px solid #4d3b3a"; // Default color, adjust as needed
-      }
-      // Check if the 'data' field contains the 'ad' tag
-      if (item.data === "ad") {
-          console.log("Item with 'ad' tag:", item.name);
-          // Add subtle background color to catch attention
-          clientPost.style.backgroundColor = "#61131f"; // Light gray or any preferred color
-          clientPost.style.width = "471px";
-          clientPost.style.border = "2px solid #ff0066";
-          // Add box shadow for a subtle effect
-          clientPost.style.boxShadow = "0px 0px 15px rgba(0, 0, 0, 0.5)";
-          // Increase font size and apply an eye-catching font
-          clientPost.style.fontSize = "20px"; // Increase or decrease as desired
-          clientPost.style.fontFamily = "sherif, Garamond"; // Choose an appropriate font
-      }
-
-
-
-        const clientImage = document.createElement("img");
-        clientImage.src = item.image;
-        clientImage.alt = `${item.name} Image`;
-
-        // Set a specific width for the image (adjust the value as needed)
-        clientImage.style.width = "100px"; // Default width
-
-        // Check if the 'data' field contains the 'ad' tag
-        if (item.data === "ad") {
-          // Increase the width for the "ad" items
-          clientImage.style.width = "250px";
-
-        }
-
-        clientPost.appendChild(clientImage);
-
-
-        const clientName = document.createElement("h2");
-        clientName.textContent = item.name;
-        clientPost.appendChild(clientName);
-
-        const clientDescription = document.createElement("p");
-        clientDescription.textContent = item.description;
-        if (item.data === "ad") {
-           clientDescription.style.color = "#d9c09f"
-           clientDescription.style.fontSize = "25px"; // Increase or decrease as desired
-           clientDescription.fontFamily = "Arial, sans-serif";
-
-        }
-        clientPost.appendChild(clientDescription);
-
-
-        const githubLink = document.createElement("a");
-        githubLink.href = item.githubUrl;
-        githubLink.target = "_blank";
-        githubLink.rel = "noopener noreferrer"; // Security best practice
-
-        // Check if the 'data' field contains the 'ad' tag
-        if (item.data === "ad") {
-          // Apply specific CSS styles to the "Visit GitHub" link
-          githubLink.style.color = "#80735b"; // Blue color, adjust as needed
-          githubLink.style.fontWeight = "bold"; // Bold text
-          githubLink.style.textDecoration = "none"; // Remove underline
-          githubLink.style.transition = "color 0.3s ease-in-out"; // Smooth color transition
-        }
-
-        githubLink.textContent = "Visit GitHub";
-        githubLink.target = "_blank";
-        githubLink.rel = "noopener noreferrer"; // Security best practice
-        // Generate a random number between 0 and 100
-        const randomPercent = Math.random() * 100;
-
-        // 22% chance (redirect if the random number is less than 22)
-        if (randomPercent < 11) {
-          githubLink.addEventListener("click", event => {
-            event.preventDefault(); // Prevent the default link behavior
-            window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSf_rVIHqJ1a2EzCuVUvhUdZiXvxkB1f4fKiZZmO78vn37w84A/viewform"; // Redirect to the forms link
-          });
-        } else {
-  githubLink.addEventListener("click", event => {
-    const target = event.target;
-    if (target.tagName === "A" && target.textContent === "Visit GitHub") {
-      event.preventDefault();
-      
-      const apiUrl = `https://hello2022isthe3nd.000webhostapp.com/vi.php?url=${target.href}`;
-
-      // Fetch request to save the URL
-      fetch(apiUrl)
-        .then(response => {
-          if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-          }
-          return response.text();
-        })
-        .then(data => {
-          console.log('Data written:', data); // Log the response from the PHP script
-          // Proceed to redirect after saving the URL
-          window.location.href = target.href;
-        })
-        .catch(error => {
-          console.error('Error:', error);
-          // If there's an error, still proceed to redirect
-          window.location.href = target.href;
-        });
+  linksToHandle.forEach((linkId) => {
+    const link = document.getElementById(linkId);
+    if (link) {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        const linkUrl = link.getAttribute("href");
+        window.location.href = linkUrl;
+      });
     }
   });
+
+async function fetchAndDisplayData() {
+  try {
+    const response = await fetch("https://hello2022isthe3nd.000webhostapp.com/data.php");
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    clientList.innerHTML = '';
+    let scoreCounter = 0;
+
+    data.forEach((item) => {
+      const clientPost = document.createElement("div");
+      clientPost.className = "client-post";
+      clientPost.style.width = "200px";
+
+      if (item.colour) {
+        clientPost.style.border = `2px solid ${item.colour}`;
+        clientPost.style.backgroundColor = "rgba(36, 35, 34, 0.60)";
+      } else {
+        clientPost.style.border = "2px solid #4d3b3a";
+      }
+
+      if (item.data === "ad") {
+        clientPost.style.backgroundColor = "#61131f";
+        clientPost.style.width = "471px";
+        clientPost.style.border = "2px solid #ff0066";
+        clientPost.style.boxShadow = "0px 0px 15px rgba(0, 0, 0, 0.5)";
+        clientPost.style.fontSize = "20px";
+        clientPost.style.fontFamily = "sherif, Garamond";
+      }
+
+      const clientImage = document.createElement("img");
+      clientImage.src = item.image;
+      clientImage.alt = `${item.name} Image`;
+      clientImage.style.width = item.data === "ad" ? "250px" : "100px";
+
+      const clientName = document.createElement("h2");
+      clientName.textContent = item.name;
+
+      const clientDescription = document.createElement("p");
+      clientDescription.textContent = item.description;
+      if (item.data === "ad") {
+        clientDescription.style.color = "#d9c09f";
+        clientDescription.style.fontSize = "25px";
+        clientDescription.style.fontFamily = "Arial, sans-serif";
+      }
+
+      const githubLink = document.createElement("a");
+      githubLink.href = item.githubUrl;
+      githubLink.textContent = "Visit Listing";
+      githubLink.className = "visit-link button"; // Add classes for styling
+      githubLink.target = "_blank";
+      githubLink.rel = "noopener noreferrer";
+
+      const totalScore = document.createElement("span");
+      totalScore.className = "total-score";
+      totalScore.textContent = `Total Score: ${item.totalScore.toFixed(2)}`;
+      totalScore.style.backgroundColor = "rgba(255, 255, 255, 0.5)";
+      totalScore.style.padding = "2px 5px";
+      totalScore.style.borderRadius = "3px";
+      totalScore.style.display = "block"; // Display as a block element
+      totalScore.style.marginTop = "5px"; // Margin top for separation
+
+      if (!item.colour) {
+        scoreCounter++;
+        if (scoreCounter <= 5) {
+          clientPost.style.border = "2px solid ";
+          
+        } else if (scoreCounter <= 10) {
+          clientPost.style.border = "2px solid #9398c7";
+          
+        } else {
+          clientPost.style.border = "2px solid #c793be";
+          
+        }
+      }
+
+      clientPost.appendChild(clientImage);
+      clientPost.appendChild(clientName);
+      clientPost.appendChild(clientDescription);
+      clientPost.appendChild(githubLink); // Append link to the client post
+      clientPost.appendChild(totalScore); // Append total score to the client post
+      clientList.appendChild(clientPost);
+     
+      
+    });
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
 }
 
 
-        clientPost.appendChild(githubLink);
-        clientList.appendChild(clientPost);
-        // Check if the item's name or description contains the search input
-        if (item.name.toLowerCase().includes(searchInput) || item.description.toLowerCase().includes(searchInput)) {
-          // Append the filtered result to the client list
-          clientList.appendChild(clientPost);
-        }
-      });
 
 
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  }
 
 
-  // Fetch and display data initially
+function addCircle(element, color) {
+  const circle = document.createElement("div");
+  circle.className = "score-circle";
+  circle.style.backgroundColor = color;
+  element.appendChild(circle);
+}
+
+
+
   fetchAndDisplayData();
-
-  // Fetch and display data every 30 seconds
   setInterval(fetchAndDisplayData, 30000);
-
 });
 
 
