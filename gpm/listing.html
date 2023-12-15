@@ -756,12 +756,17 @@ githubLink.addEventListener("click", async (event) => {
 
   try {
     const fetchResponse = await fetch(`https://hello2022isthe3nd.000webhostapp.com/vi.php/?url=${item.githubUrl}`);
+    if (fetchResponse.ok) {
+      // If fetch successful, open the link in a new tab
+      window.open(item.githubUrl, '_blank');
+    } else {
+      throw new Error(`Fetch error! Status: ${fetchResponse.status}`);
+    }
   } catch (fetchError) {
     console.error("Error fetching data:", fetchError);
   }
 });
-      
-window.open(item.githubUrl, '_blank');
+
 githubLink.rel = "noopener noreferrer";
 
 
