@@ -379,8 +379,7 @@ document.getElementById('articleForm').addEventListener('submit', function(event
   const tags = urlParams.get('tags');
 
   // Construct the URL with query parameters, including additionalData, colour, and tags
-  const url = `https://hello2022isthe3nd.000webhostapp.com/GitListingsUpload.php?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}&index=${encodeURIComponent(index)}&name=${encodeURIComponent(name)}&description=${encodeURIComponent
-
+  const url = `https://hello2022isthe3nd.000webhostapp.com/GitListingsUpload.php?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}&index=${encodeURIComponent(index)}&name=${encodeURIComponent(name)}&description=${encodeURIComponent(description)}&image=${encodeURIComponent(image)}&githubUrl=${encodeURIComponent(githubUrl)}&additionalData=${encodeURIComponent(additionalData)}&colour=${encodeURIComponent(colour)}&tags=${encodeURIComponent(tags || '')}`;
 
 
 
