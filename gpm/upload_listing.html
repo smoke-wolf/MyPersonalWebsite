@@ -1,11 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GHPM</title>
-    <style>
+        <style>
 
     .container {
       text-align: left;
@@ -189,6 +185,10 @@
         font-size: 120%;
       }
     </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GHPM</title>
+
   </head>
   <body>
     <header>
@@ -255,6 +255,20 @@
       
       <input class="color-picker" type="color" id="colorPicker" name="colour" style="display: none;">
       
+      <label for="additionalData">Data Version:</label>
+    <select id="additionalData">
+      <option value="ad1">Ad 1</option>
+      <option value="ad2">Ad 2</option>
+      <option value="ad3">Ad 3</option>
+      <option value="ad4">Ad 4</option>
+      <option value="ad5">Ad 5</option>
+      <option value="ad6">Ad 6</option>
+      <option value="ad7">Ad 7</option>
+      <option value="ad8">Ad 8</option>
+      <option value="ad9">Ad 9</option>
+      <option value="ad10">Ad 10</option>
+    </select>
+
       <button type="submit">Upload Article</button>
       
       <div id="linkContainer"></div>
@@ -357,7 +371,7 @@ document.getElementById('articleForm').addEventListener('submit', function(event
   const description = document.getElementById('description').value;
   const image = document.getElementById('image').value;
   const githubUrl = document.getElementById('githubUrl').value;
-  const additionalData = document.getElementById('additionalData').value;
+  const additionalData = document.getElementById('additionalData').value; // Get selected additional data from dropdown
   const colour = document.getElementById('colorPicker').value; // Get the selected color
 
   // Get the tags from the URL parameters
@@ -365,15 +379,18 @@ document.getElementById('articleForm').addEventListener('submit', function(event
   const tags = urlParams.get('tags');
 
   // Construct the URL with query parameters, including additionalData, colour, and tags
-  const url = `https://hello2022isthe3nd.000webhostapp.com/GitListingsUpload.php?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}&index=${encodeURIComponent(index)}&name=${encodeURIComponent(name)}&description=${encodeURIComponent(description)}&image=${encodeURIComponent(image)}&githubUrl=${encodeURIComponent(githubUrl)}&additionalData=${encodeURIComponent(additionalData)}&colour=${encodeURIComponent(colour)}&tags=${encodeURIComponent(tags || '')}`;
+  const url = `https://hello2022isthe3nd.000webhostapp.com/GitListingsUpload.php?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}&index=${encodeURIComponent(index)}&name=${encodeURIComponent(name)}&description=${encodeURIComponent
 
-  // Open the constructed URL in a new tab
-  window.open(url, '_blank');
-});
 
 
 
   </script>
+
+
+
+
+
+
   <script>
   document.getElementById('githubUrl').addEventListener('change', function(event) {
   const repoUrl = event.target.value;
