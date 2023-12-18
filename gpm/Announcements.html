@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  align-items: center;
+  background-color: #1c1c1c; /* Darker background */
+  display: flex;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 550;
+  justify-content: center;
+  position: relative; /* Position relative for pseudo-element */
+}
+
+/* Creating the fog effect */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url('https://images.unsplash.com/photo-1579567761406-4684ee0c75b6?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y3liZXJ8ZW58MHx8MHx8fDA%3D') center/cover no-repeat;
+  z-index: -1; /* Behind the content */
+  opacity: 0.4; /* Adjust the opacity for fog effect */
+  filter: blur(8px); /* Adding blur effect */
+}
+
+
+main {
+  background-color: #2b2b2b; /* Darker background */
+  border-radius: 12px;
+  color: #d9d9d9; /* Lighter text */
+  width: 50%;
+}
+
+.details {
+  justify-content: space-between;
+  margin: 28px;
+}
+
+.details,
+.times {
+  align-items: center;
+  display: flex;
+}
+
+.times {
+  gap: 10px;
+}
+
+.times div {
+  background-color: #0f4c75; /* Darker blue */
+  border-radius: 6px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  padding: 2px 10px;
+}
+
+.times p {
+  color: #d9d9d9; /* Lighter text */
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+}
+
+button:hover {
+  color: #0f4c75; /* Darker blue */
+}
+
+.dotted {
+  background-color: #de214e;
+  border-radius: 50%;
+  display: inline-block;
+  height: 8px;
+  margin-left: 6px;
+  width: 8px;
+}
+
+button {
+  background-color: #2b2b2b; /* Darker background */
+  border: none;
+  color: #d9d9d9; /* Lighter text */
+  font-weight: 600;
+  outline: none;
+}
+
+.msg-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 12px 28px 0;
+}
+
+.notification {
+  border-radius: 10px;
+  display: flex;
+  gap: 16px;
+  padding: 12px 16px;
+}
+
+.image img {
+  height: 40px;
+  width: 40px;
+}
+
+.review p {
+  border: 1px solid #6a7d8a;
+  border-radius: 6px;
+  padding: 14px;
+  width: 88%;
+}
+
+.review p:hover {
+  background-color: #e4ebf1;
+}
+
+.pic,
+.pic-cont {
+  display: flex;
+}
+
+.pic {
+  border-radius: 10px;
+  gap: 16px;
+  padding: 10px 16px;
+  position: relative;
+}
+
+.pic-cont section img {
+  position: absolute;
+  right: 16px;
+}
+
+.pic-cont img {
+  height: 40px;
+  width: 40px;
+}
+
+strong {
+  color: #d9d9d9; /* Lighter text */
+  font-weight: 800;
+  padding-right: 5px;
+}
+
+strong:focus,
+strong:hover {
+  color: #0f4c75; /* Darker blue */
+}
+
+span {
+  color: #d9d9d9; /* Lighter text */
+  font-weight: 800;
+  padding-left: 5px;
+}
+
+.club,
+span:hover {
+  color: #0f4c75; /* Darker blue */
+}
+
+.club {
+  font-weight: 800;
+}
+
+.time {
+  color: #6a7d8a;
+}
+
+.dot {
+  background-color: #e4ebf1;
+}
+
+/* Responsive for Small Width Devices */
+@media (max-width: 1200px) {
+  main {
+    width: 70%;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    margin: 0;
+    align-items: flex-start;
+  }
+
+  main {
+    font-size: 12px;
+    width: 100%;
+  }
+
+  .msg-box,
+  .details {
+    margin: 24px 14px 2px;
+  }
+
+  .details p {
+    font-size: 18px;
+  }
+}
+/* Your existing CSS */
+/* ... */
+
+.notification {
+  border-radius: 12px;
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  background-color: #2b2b2b; /* Darker background */
+  border: 2px solid #0f4c75; /* Darker blue border */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adding a subtle shadow */
+}
+
+.image img {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%; /* Rounded profile images */
+  border: 2px solid #0f4c75; /* Darker blue border */
+}
+
+.cont {
+  flex: 1;
+}
+
+.react-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-info strong {
+  color: #d9d9d9; /* Lighter text */
+  font-weight: 800;
+  padding-right: 10px;
+}
+
+.user-info strong:hover {
+  color: #0f4c75; /* Darker blue */
+}
+
+.user-info span {
+  color: #d9d9d9; /* Lighter text */
+  font-weight: 600;
+}
+
+.action {
+  color: #6e7175; /* Slightly lighter text */
+  font-weight: 600;
+}
+
+.time {
+  color: #6a7d8a;
+  font-size: 14px;
+}
+  </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notification Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Other styles and links -->
+    <style>
+        /* Add custom border colors based on notification border_color attribute */
+        .notification {
+            border: 2px solid;
+        }
+
+        /* Style for unread notifications */
+        .unread {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <section class="details">
+            <section class="times">
+                <p>GHPM Notifications and Changes</p>
+                <div class="count">Loading...</div>
+            </section>
+            <button id="markAllButton">Mark all as read</button>
+        </section>
+
+        <section class="msg-box" id="notificationContainer">
+            <!-- Notifications will be populated here dynamically -->
+        </section>
+
+        <!-- ... HTML remains unchanged ... -->
+
+<script>
+    function fetchAndDisplayNotifications() {
+        fetch('https://hello2022isthe3nd.000webhostapp.com/Announcements.php')
+            .then(response => response.json())
+            .then(notifications => {
+                const notificationContainer = document.getElementById('notificationContainer');
+                const countElement = document.querySelector('.count');
+
+                countElement.textContent = notifications.length;
+
+                notifications.forEach(notification => {
+                    const unreadClass = notification.read ? 'unread' : ''; // Use 'unread' class if notification is unread
+
+                    if (notification.border_color && notification.image) {
+                        const notificationElement = document.createElement('section');
+                        notificationElement.className = `notification dot ${unreadClass}`;
+                        notificationElement.style.borderColor = notification.border_color;
+
+                        const imageElement = document.createElement('img');
+                        imageElement.src = notification.image;
+                        imageElement.alt = '';
+                        const imageSection = document.createElement('section');
+                        imageSection.className = 'image';
+                        imageSection.appendChild(imageElement);
+
+                        const contSection = document.createElement('section');
+                        contSection.className = 'cont';
+                        const reactsParagraph = document.createElement('p');
+                        reactsParagraph.className = 'reacts';
+                        const userStrong = document.createElement('strong');
+                        userStrong.textContent = notification.user;
+                        reactsParagraph.appendChild(userStrong);
+                        reactsParagraph.innerHTML += ` ${notification.action}`;
+                        if (notification.content) {
+                            const contentSpan = document.createElement('span');
+                            contentSpan.textContent = notification.content;
+                            reactsParagraph.appendChild(contentSpan);
+                        }
+                        const dottedSpan = document.createElement('span');
+                        dottedSpan.className = 'dotted';
+                        reactsParagraph.appendChild(dottedSpan);
+                        contSection.appendChild(reactsParagraph);
+
+                        const timeSection = document.createElement('section');
+                        timeSection.className = 'time';
+                        timeSection.textContent = notification.time;
+                        contSection.appendChild(timeSection);
+
+                        notificationElement.appendChild(imageSection);
+                        notificationElement.appendChild(contSection);
+
+                        notificationContainer.appendChild(notificationElement);
+                    } else {
+                        console.error('Invalid notification data:', notification);
+                    }
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching notifications:', error);
+            });
+    }
+
+    document.addEventListener('DOMContentLoaded', fetchAndDisplayNotifications);
+
+    const markAllButton = document.getElementById('markAllButton');
+    markAllButton.addEventListener('click', () => {
+        // Your logic for marking all notifications as read
+    });
+</script>
+
+    </main>
+</body>
+<script>
+    function fetchAndDisplayNotifications() {
+        fetch('https://hello2022isthe3nd.000webhostapp.com/Announcements.php')
+            .then(response => response.json())
+            .then(notifications => {
+                const notificationContainer = document.getElementById('notificationContainer');
+                const countElement = document.querySelector('.count');
+
+                countElement.textContent = notifications.length;
+
+                notifications.forEach(notification => {
+                    const unreadClass = notification.read ? 'unread' : ''; // Use 'unread' class if notification is unread
+
+                    if (notification.border_color && notification.image) {
+                        const notificationElement = document.createElement('section');
+                        notificationElement.className = `notification dot ${unreadClass}`;
+                        notificationElement.style.borderColor = notification.border_color;
+
+                        const imageElement = document.createElement('img');
+                        imageElement.src = notification.image;
+                        imageElement.alt = '';
+                        const imageSection = document.createElement('section');
+                        imageSection.className = 'image';
+                        imageSection.appendChild(imageElement);
+
+                        const contSection = document.createElement('section');
+                        contSection.className = 'cont';
+                        const reactsParagraph = document.createElement('p');
+                        reactsParagraph.className = 'reacts';
+                        const userStrong = document.createElement('strong');
+                        userStrong.textContent = notification.user;
+                        reactsParagraph.appendChild(userStrong);
+                        reactsParagraph.innerHTML += ` ${notification.action}`;
+                        if (notification.content) {
+                            const contentSpan = document.createElement('span');
+                            contentSpan.textContent = notification.content;
+                            reactsParagraph.appendChild(contentSpan);
+                        }
+                        const dottedSpan = document.createElement('span');
+                        dottedSpan.className = 'dotted';
+                        reactsParagraph.appendChild(dottedSpan);
+                        contSection.appendChild(reactsParagraph);
+
+                        const timeSection = document.createElement('section');
+                        timeSection.className = 'time';
+                        timeSection.textContent = notification.time;
+                        contSection.appendChild(timeSection);
+
+                        notificationElement.appendChild(imageSection);
+                        notificationElement.appendChild(contSection);
+
+                        notificationContainer.appendChild(notificationElement);
+                    } else {
+                        console.error('Invalid notification data:', notification);
+                    }
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching notifications:', error);
+            });
+    }
+
+    document.addEventListener('DOMContentLoaded', fetchAndDisplayNotifications);
+
+    const markAllButton = document.getElementById('markAllButton');
+    markAllButton.addEventListener('click', () => {
+        // Your logic for marking all notifications as read
+    });
+</script>
+</html>
