@@ -1,5 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
+  <style>
+    /* Your provided CSS theme goes here */
+html,
+body {
+  height: auto;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+body {
+  background: linear-gradient(#141e30, #243b55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-box {
+  width: 400px;
+  padding: 40px;
+  background: rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  color: #fff;
+}
+
+.login-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  text-align: center;
+}
+
+.terms-of-service {
+  margin-bottom: 20px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.terms-of-service h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #03e9f4;
+}
+
+.terms-of-service p {
+  font-size: 14px;
+  color: #fff;
+}
+
+.user-box {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.user-box input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.user-box label {
+  font-size: 14px;
+  color: #03e9f4;
+  cursor: pointer;
+}
+
+button[type="submit"] {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 2px solid #03e9f4;
+  border-radius: 5px;
+  background: transparent;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  color: #fff;
+}
+
+button[type="submit"]:hover span:nth-child(1) {
+  left: 100%;
+  transition: all 0.3s ease;
+}
+
+button[type="submit"] span {
+  position: absolute;
+  display: block;
+}
+
+button[type="submit"] span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #03e9f4);
+  animation: btn-anim1 1s linear infinite;
+}
+
+/* Rest of your provided theme CSS... */
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+  50%,
+  100% {
+    left: 100%;
+  }
+}
+.login-box {
+  width: 400px;
+  padding: 40px;
+  background: rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  color: #fff;
+  margin-top:auto; /* Adjust this value as needed */
+}
+/* Styling for form elements */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.form-input {
+  padding: 8px;
+  width: 100%;
+  border: 1px solid #03e9f4;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+/* Adjusted styles for the consent checkbox */
+.user-box {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.user-box input[type="checkbox"] {
+  margin-right: 10px;
+  transform: scale(1.5); /* Adjust the size as needed */
+}
+
+.user-box label {
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Submit button styles */
+.form-submit {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 2px solid #03e9f4;
+  border-radius: 5px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.form-submit:hover {
+  color: #fff;
+}
+
+.form-submit span {
+  position: absolute;
+  display: block;
+}
+
+.form-submit span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #03e9f4);
+  animation: btn-anim1 1s linear infinite;
+}
+
+/* Rest of your provided theme CSS... */
+
+/* Animation keyframes */
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+  50%,
+  100% {
+    left: 100%;
+  }
+}
+
+  </style>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +221,7 @@
   <link rel="stylesheet" href="your-provided-theme.css">
 </head>
 <body>
+  
   <div class="login-box">
     <h2>Download GHPM</h2>
     <form action="/download" method="post">
