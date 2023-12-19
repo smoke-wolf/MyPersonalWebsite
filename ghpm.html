@@ -1,1298 +1,322 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <style>@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400");
-
-*,
-*::before,
-*::after {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-/* ================= VARIABLE ================ */
-:root {
-  --primary-color: hsl(9, 94%, 61%);
-  --primary-color-alt: hsl(28, 72%, 83%);
-  --second-color: #3e537c;
-  --second-color-alt: hsla(220, 33%, 36%, 65%);
-  --third-color: hsl(220, 36%, 28%);
-  --white-color: #fbfbfb;
-  --white-color-alt: hsl(12, 14%, 93%);
-  --dark-color: hsl(300, 100%, 0%);
-}
-:root.subtle {
-  --primary-color: #7110ad;
-  --primary-color-alt: #52183f;
-  --second-color: #151a24;
-  --second-color-alt: #173033;
-  --third-color: #142f33;
-  --white-color: #fbfbfb;
-  --white-color-alt: hsl(12, 14%, 93%);
-  --dark-color: hsl(300, 100%, 0%);
-}
-
-
-:root.ocean_theme {
-  --primary-color: hsl(200, 60%, 55%);
-  --primary-color-alt: hsl(200, 60%, 65%);
-  --second-color: #115173;
-  --second-color-alt: hsla(220, 33%, 15%, 80%);
-  --third-color: hsl(220, 36%, 10%);
-  --white-color: #f0f5ff;
-  --white-color-alt: hsl(0, 0%, 85%);
-  --dark-color: hsl(0, 0%, 5%);
-}
-
-:root.dark_theme {
-  --primary-color: hsl(209, 34%, 30%);
-  --primary-color-alt: hsl(209, 34%, 40%);
-  --second-color: #1f2430;
-  --second-color-alt: hsla(220, 33%, 25%, 80%);
-  --third-color: hsl(220, 36%, 20%);
-  --white-color: #ffffff;
-  --white-color-alt: hsl(0, 0%, 98%);
-  --dark-color: hsl(0, 0%, 10%);
-}
-
-
-:root.cool_theme {
-  --primary-color: hsl(240, 80%, 60%);
-  --primary-color-alt: hsl(240, 80%, 70%);
-  --second-color: #192841;
-  --second-color-alt: hsla(220, 33%, 15%, 80%);
-  --third-color: hsl(220, 36%, 10%);
-  --white-color: #e0e0e0;
-  --white-color-alt: hsl(0, 0%, 85%);
-  --dark-color: hsl(0, 0%, 5%);
-}
-
-/* ================= BASE ==================== */
-li {
-  list-style: none;
-}
-a {
-  text-decoration: none;
-}
-img {
-  width: 100%;
-  height: auto;
-}
-.bx {
-  font-size: 2.5rem;
-}
-.container {
-  padding: 0 2rem;
-}
-
-/* -- BODY -- */
+  <style>
+    /* Your provided CSS theme goes here */
+html,
 body {
-  font-family: "Raleway", sans-serif;
-  font-size: 1rem;
-  background-color: black;
-  
+  height: auto;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
 }
 
-/* ================= HEADER ================ */
-header {
+body {
+  background: linear-gradient(#141e30, #243b55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-box {
+  width: 400px;
+  padding: 40px;
+  background: rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  color: #fff;
+}
+
+.login-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  text-align: center;
+}
+
+.terms-of-service {
+  margin-bottom: 20px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.terms-of-service h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #03e9f4;
+}
+
+.terms-of-service p {
+  font-size: 14px;
+  color: #fff;
+}
+
+.user-box {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  background-color: var(--dark-color);
-  padding: 1rem 2rem;
+  margin-bottom: 20px;
 }
-.company-logo {
-  font-size: 2.5rem;
-  background: -webkit-linear-gradient(
-    120deg,
-    var(--primary-color-alt),
-    var(--primary-color)
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+
+.user-box input[type="checkbox"] {
+  margin-right: 10px;
 }
-.nav-items {
-  display: flex;
+
+.user-box label {
+  font-size: 14px;
+  color: #03e9f4;
+  cursor: pointer;
 }
-.nav-item {
-  margin: 0 2rem;
-}
-.nav-link {
-  font-size: 1.1rem;
-  letter-spacing: 0.05rem;
+
+button[type="submit"] {
   position: relative;
-  background: -webkit-linear-gradient(
-    var(--primary-color-alt),
-    var(--primary-color)
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 2px solid #03e9f4;
+  border-radius: 5px;
+  background: transparent;
+  cursor: pointer;
 }
-.nav-link::before {
-  content: "";
-  background: linear-gradient(var(--primary-color), var(--primary-color-alt));
-  width: 100%;
-  height: 0.05rem;
+
+button[type="submit"]:hover {
+  color: #fff;
+}
+
+button[type="submit"]:hover span:nth-child(1) {
+  left: 100%;
+  transition: all 0.3s ease;
+}
+
+button[type="submit"] span {
   position: absolute;
-  left: 0;
-  bottom: 0;
-  transform: scaleX(0);
-  transform-origin: bottom right;
-  transition: transform 150ms;
-}
-.nav-link:hover::before {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-}
-.menu-toggle {
-  display: none;
-}
-.bx-menu,
-.bx-x {
-  cursor: pointer;
-  background: -webkit-linear-gradient(
-    120deg,
-    var(--primary-color-alt),
-    var(--primary-color)
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: none !important;
+  display: block;
 }
 
-/* ================= MAIN ================ */
-
-/* -------- HOME SECTION -------------- */
-.section-1 {
-  background-color: var(--dark-color);
-  display: grid;
-  max-width: 800px;
-}
-/* .home-computer-container {} */
-
-.slogan .company-title {
-  background: -webkit-linear-gradient(
-    120deg,
-    
-    var(--primary-color-alt),
-    var(--primary-color)
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-top: 2rem;
-  font-size: 2.5rem;
-  font-weight: 600;
-}
-.slogan .wai-slogan {
-  background: -webkit-linear-gradient(
-    120deg,
-    var(--primary-color-alt),
-    var(--primary-color)
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-top: 1rem;
-  font-size: 1.2rem;
-  font-weight: 400;
-  line-height: 1.8rem;
-  text-allign
-}
-
-/* -------- OFFER SECTION ------------- */
-.section-2 {
-  margin: 2rem 0;
-}
-.offer {
-  background-color: black;
-  margin: 1rem 0;
-  display: grid;
-}
-.offer img {
-  background-color: var(--dark-color);
-  padding: 2rem 0;
-}
-.offer-1 img {
-  background-color: var(--dark-color);
-  padding: 3rem 0;
-}
-.offer-description {
-  background-color: black;
-  padding: 0 1rem;
-}
-.offer-description .offer-title {
-  color: var(--second-color);
-  font-size: 1.8rem;
-  font-weight: 400;
-  padding: 1.5rem 0 0.5rem 0;
-}
-.offer-description .offer-hook {
-  color: var(--second-color-alt);
-  
-  font-size: 1.2rem;
-}
-.offer-description .cart-btn {
-  background-color: black;
-  cursor: pointer;
-  color: var(--second-color-alt);
-  font-size: 1.1rem;
-  display: grid;
-  place-items: center;
-  margin: 2rem 0 1rem 0;
-  width: 10rem;
-  height: 3rem;
-  background-image: linear-gradient(
-    to top,
-    var(--primary-color-alt),
-    var(--primary-color)
-  );
-}
-.offer-description .cart-btn:hover {
-  background-image: linear-gradient(
-    to bottom,
-    var(--primary-color-alt),
-    var(--primary-color)
-  );
-}
-
-/* -------- PRODUCT SECTION ----------- */
-.section-3 {
-  display: grid;
-  place-items: center;
-  justify-content: space-around;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 400px));
-}
-.product {
-  cursor: pointer;
-  background-color: var(--white-color-alt);
-  position: relative;
-  with: 800;
-}
-.product::before {
-  content: "";
-  background-image: linear-gradient(
-    to bottom,
-    hsla(29, 72%, 83%, 0.438),
-    hsla(9, 94%, 61%, 0.507)
-  );
-  position: absolute;
+button[type="submit"] span:nth-child(1) {
   top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #03e9f4);
+  animation: btn-anim1 1s linear infinite;
 }
-.product_add_cart {
-  color: var(--white-color-alt);
-  font-size: 1.2rem;
-  background-color: hsl(9, 94%, 65%);
-  padding: 1rem 0.4rem;
+
+/* Rest of your provided theme CSS... */
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+  50%,
+  100% {
+    left: 100%;
+  }
+}
+.login-box {
+  width: 400px;
+  padding: 40px;
+  background: rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  color: #fff;
+  margin-top:auto; /* Adjust this value as needed */
+}
+/* Styling for form elements */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.form-input {
+  padding: 8px;
+  width: 100%;
+  border: 1px solid #03e9f4;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+/* Adjusted styles for the consent checkbox */
+.user-box {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.user-box input[type="checkbox"] {
+  margin-right: 10px;
+  transform: scale(1.5); /* Adjust the size as needed */
+}
+
+.user-box label {
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Submit button styles */
+.form-submit {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 2px solid #03e9f4;
+  border-radius: 5px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.form-submit:hover {
+  color: #fff;
+}
+
+.form-submit span {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: transform 300ms, color 300ms, box-shadow 300ms;
-}
-.product_add_cart:hover {
-  color: var(--white-color);
-  box-shadow: 0 1rem 0 -0.5rem hsl(17, 79%, 65%, 0.7),
-    0 2rem 0 -1rem hsla(17, 79%, 65%, 0.65);
+  display: block;
 }
 
-/* -------- SPONSOR SECTION ----------- */
-.section-4 {
-  margin: 4rem 0;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-around;
-}
-.sponsor img {
-  cursor: pointer;
-  width: 40px;
-  height: 40px;
-  filter: grayscale(100%);
-  opacity: 0.8;
-  transition: opacity 300ms;
-}
-.sponsor img:hover {
-  /* filter: grayscale(0); */
-  opacity: 1;
-}
-
-/* ========= SUBSCRIBE SECTION ========== */
-.section-5 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 2rem 0;
-}
-.subscribe-input-label {
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
-  font-weight: 400;
-  letter-spacing: 0.05rem;
-  color: var(--second-color);
-}
-input[type="text"] {
-  padding: 0 0.5rem;
-  font-size: 1.1rem;
+.form-submit span:nth-child(1) {
+  top: 0;
+  left: -100%;
   width: 100%;
-  height: 3rem;
-  border: none;
-  background-color: hsl(220, 33%, 90%);
-  color: var(--second-color-alt);
-  transition: background-color 300ms;
-}
-input[type="text"]:focus {
-  outline: none;
-  background-color: hsl(220, 33%, 95%);
-}
-input[type="text"]::placeholder {
-  color: var(--second-color-alt);
-}
-input[type="submit"] {
-  cursor: pointer;
-  background-image: linear-gradient(
-    to top,
-    var(--primary-color-alt),
-    var(--primary-color)
-  );
-  color: var(--white-color-alt);
-  margin: 1rem 0;
-  border: none;
-  width: 100%;
-  height: 3rem;
-  font-size: 1.2rem;
-  transition: color 300ms;
-}
-input[type="submit"]:hover {
-  background-image: linear-gradient(
-    to bottom,
-    var(--primary-color-alt),
-    var(--primary-color)
-  );
-  color: var(--white-color);
-}
-/* =============== FOOTER =============== */
-.top-footer {
-  background-color: var(--second-color);
-  display: flex;
-  flex-direction: column;
-}
-.footer-title {
-  font-weight: 500;
-  font-size: 1.2rem;
-  padding: 1rem 0;
-  background-image: -webkit-linear-gradient(
-    120deg,
-    var(--primary-color-alt),
-    var(--primary-color)
-  );
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.footer-items h3 {
-  cursor: pointer;
-  font-weight: 300;
-  font-size: 1.1rem;
-  padding: 0.1rem 0;
-  color: var(--white-color-alt);
-}
-.footer-items h3:hover {
-  text-decoration: underline;
-}
-.footer-items h3:last-child {
-  padding-bottom: 2rem;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #03e9f4);
+  animation: btn-anim1 1s linear infinite;
 }
 
-.end-footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--third-color);
-}
-.copyright {
-  color: var(--white-color-alt);
-  padding: 1rem 0;
-  font-size: 0.9rem;
-}
-.copyright b {
-  font-weight: inherit;
-  font-size: 0.9rem;
-}
-.designer {
-  color: hsla(0, 0%, 98%, 0.541);
-  padding-bottom: 0.5rem;
-  font-size: 0.9rem;
-}
-.designer:hover {
-  text-decoration: underline;
-}
+/* Rest of your provided theme CSS... */
 
-/* =============== MEDIA QUERIES ======= */
-
-@media screen and (max-width: 768px) {
-  .container {
-    padding: 0 1rem;
+/* Animation keyframes */
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
   }
-  /* ================= HEADER ================ */
-  header {
-    padding: 0.5rem 1rem;
-  }
-  .navbar {
-    background-color: var(--dark-color);
-    position: absolute;
-    top: 3.5rem;
-    right: 0;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    transform: scaleY(0);
-    transform-origin: bottom;
-    transition: transform 500ms;
-  }
-  .show-navbar {
-    display: flex;
-    transform: scaleY(1);
-    transform-origin: top;
-    transition: transform 300ms;
-  }
-  .nav-items {
-    display: flex;
-    flex-direction: column;
-  }
-  .nav-item {
-    margin: 0.5rem 0;
-  }
-  .menu-toggle {
-    display: block;
-  }
-  .bx-menu {
-    display: block !important;
-  }
-  .show-bx {
-    display: block !important;
-  }
-  .hide-bx {
-    display: none !important;
-  }
-}
-@media (min-width: 769px) {
-  header {
-    padding: 1rem 5rem;
-  }
-  /* ================= MAIN ================ */
-
-  /* -------- HOME SECTION -------------- */
-  .section-1 {
-    justify-content: space-between;
-    grid-template-columns: 1fr 1fr;
-    padding: 10rem 5rem 0 5rem;
-     position: absolute;
-            left: 61%;
-            transform: translateX(-50%);
-  }
-  .slogan .title {
-    max-width: 30rem;
-    font-size: 4.8rem;
-    
-    letter-spacing: 0.5rem;
-  }
-  .slogan .company-slogan {
-    max-width: 20rem;
-    font-size: 4.8rem;
-  }
-  /* -------- OFFER SECTION ------------- */
-  .section-2 {
-    margin: 2rem 5rem;
-    background-color: black;
-  }
- .offer {
-    margin: 5rem 0;
-    align-items: center;
-    justify-content: space-between;
-    grid-template-rows: auto auto;
-    background: black;
-    border: 2px solid #de592c; /* Added 'solid' to specify border style and set the border color */
-    padding: 20px; /* Add padding to create space between content and border */
-}
-
-
-  .offer-1 {
-    background-color: black;
-    grid-template-areas: "offer-1-img offer-desc-1";
-  }
-  .offer-1 img {
-    background-color: var(--dark-color);
-    padding: 2rem 0;
-    width: 700px;
-    
-  }
-  .offer-2 {
-    grid-template-areas: "offer-desc-2 offer-2-img";
-    background: black;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .offer-1-img {
-    grid-area: offer-1-img;
-  }
-  .offer-2-img {
-    grid-area: offer-2-img;
-  }
-  .offer-desc-1 {
-    grid-area: offer-desc-1;
-    background: black;
-  }
-  .offer-desc-2 {
-    grid-area: offer-desc-2;
-    background: black;
-  }
-  .offer-description .offer-title {
-    font-size: 1.9rem;
-    padding: 1.5rem 0 0.5rem 0;
-    
-    
-  }
-  .offer-description .offer-hook {
-    max-width: 30rem;
-  }
-  .offer-description {
-    background-color: var(--white-color-alt);
-    padding: 2rem 1rem;
-  }
-  .offer-description .offer-title {
-    padding: 0.5rem 0 1rem 0;
-  }
-  .offer-description .cart-btn {
-    margin: 2rem 0 0.5rem 0;
-  }
-  /* -------- PRODUCT SECTION ----------- */
-  .section-3 {
-    gap: 5rem;
-  }
-  .product::before {
-    transform: scaleY(0);
-    transform-origin: bottom;
-    transition: transform 300ms;
-  }
-  .product:hover::before {
-    transform: scaleY(1);
-    transform-origin: top;
-    transition: transform 300ms;
-  }
-  .product_add_cart {
-    transform: scaleY(0);
-    transform-origin: bottom;
-  }
-  .product:hover .product_add_cart {
-    transform: translate(-50%, -50%) scaleY(1);
-    transform-origin: top;
-  }
-  /* -------- SPONSOR SECTION ----------- */
-  .section-4 {
-    margin: 5rem 0;
-  }
-  /* ========= SUBSCRIBE SECTION ========== */
-  .section-5 {
-    padding: 1rem 0;
-  }
-  .section-5 .subscribe-container {
-    display: flex;
-    align-items: center;
-  }
-  input[type="text"] {
-    padding: 0 1rem;
-    width: 15rem;
-  }
-  input[type="submit"] {
-    width: 10rem;
-  }
-  /* =============== FOOTER =============== */
-  .top-footer {
-    flex-direction: row;
-    justify-content: space-around;
-    padding-bottom: 8rem;
-    padding-top: 2rem;
-  }
-  .footer-title {
-    font-size: 1rem;
-    padding: 1rem 0;
-  }
-  .footer-items h3 {
-    font-size: 0.9rem;
-  }
-
-  .end-footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--third-color);
-  }
-  .copyright {
-    color: hsla(0, 0%, 98%, 0.747);
-    padding: 1rem 0;
-    font-size: 0.8rem;
-  }
-  .copyright b {
-    font-size: 0.7rem;
-  }
-  .designer {
-    color: hsla(0, 0%, 98%, 0.322);
-    font-size: 0.8rem;
+  50%,
+  100% {
+    left: 100%;
   }
 }
 
-
-
-
-/* Add this CSS for the project section */
-.section-3 {
-    display: flex;
-    flex-direction: column; /* Stack projects vertically */
-    align-items: center;
-}
-
-.product {
-    cursor: pointer;
-    background-color: var(--white-color-alt);
-    position: relative;
-    margin-bottom: 2rem; /* Add space between stacked projects */
-    padding: 2rem;
-    text-align: center;
-    transition: transform 0.3s ease-in-out; /* Add a subtle hover effect */
-}
-
-.product:hover {
-    transform: scale(1.05); /* Scale up the project on hover */
-}
-
-.product::before {
-    content: "";
-    background-image: linear-gradient(
-        to bottom,
-        hsla(29, 72%, 83%, 0.438),
-        hsla(9, 94%, 61%, 0.507)
-    );
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: -1; /* Place the gradient background behind the content */
-}
-
-.product h3 {
-    font-size: 1.5rem;
-    margin-top: 1rem; /* Add space between image and title */
-}
-
-.product p {
-    font-size: 1rem;
-    margin-top: 0.5rem; /* Add space between title and description */
-}
-/* Style for the main content container */
-.container {
-     /* Adjust the maximum width as needed */
-    margin: 0 auto;
-    padding: 20px;
-    color: var(--white-color); /* Use the white color from your theme */
-}
-
-/* Style for the h2 headings */
-h2 {
-    font-size: 2rem;
-    margin-left: 0;
-    margin-top: 1.5rem; /* Add some top margin for spacing */
-    color: var(--primary-color); /* Use the primary color from your theme */
-}
-
-h3 {
-    font-size: 1.5rem;
-    margin-left: 0;
-    margin-top: 1.5rem; /* Add some top margin for spacing */
-    color: var(--primary-color); /* Use the primary color from your theme */
-}
-
-/* Style for the paragraphs */
-p {
-    font-size: 1.1rem;
-    line-height: 1.5;
-    margin-top: 0.5rem; /* Add spacing between paragraphs */
-}
-
-/* Style for links */
-a {
-    color: var(--primary-color);
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-/* Style for code blocks */
-pre code {
-    font-family: 'Courier New', monospace;
-    font-size: 1rem;
-    background-color: var(--dark-color);
-    color: var(--white-color);
-    padding: 10px;
-    display: block;
-    overflow-x: auto;
-    margin-top: 1rem;
-}
-
-/* Style for lists */
-ul, ol {
-    margin-left: 2rem;
-    margin-top: 0.5rem;
-}
-
-/* Style for checkboxes */
-.todo-list__label input[type="checkbox"] {
-    margin-right: 0.5rem;
-    vertical-align: middle;
-}
-
-/* Style for images */
-.image_resized {
-    width: 100%; /* Make images responsive */
-    max-width: 600px; /* Adjust the maximum width as needed */
-    margin: 1rem 0;
-}
-.product {
-    cursor: pointer;
-    background-color: var(--white-color-alt);
-    position: relative;
-    margin-bottom: 2rem;
-    padding: 2rem;
-    text-align: center;
-    transition: transform 0.3s ease-in-out;
-    width: 800px; /* Set the desired width */
-    
-    /* Add any additional styles as needed */
-}
-
-/* Style for the sidebar */
-.sidebar {
-    background-color: var(--dark-color);
-    color: var(--white-color);
-    width: 20%;
-    min-width: 200px;
-    position: fixed;
-    height: 100%;
-    overflow-y: auto;
-}
-
-.sidebar-header {
-    text-align: center;
-    padding: 1rem 0;
-}
-
-.category-list {
-    list-style: none;
-    padding: 0;
-}
-
-.category-item {
-    margin-bottom: 1rem;
-}
-
-.dropdown-button {
-    background: none;
-    border: none;
-    color: var(--second-color-alt);
-    cursor: pointer;
-    font-size: 1rem;
-    width: 100%;
-    text-align: left;
-    padding: 0.5rem 1rem;
-    transition: background-color 0.3s ease;
-}
-
-.dropdown-button:hover {
-    background-color: var(--third-color);
-}
-
-.sub-category {
-    list-style: none;
-    margin-left: 20px;
-    padding: 0;
-    display: none;
-}
-
-.sub-category li {
-    margin-bottom: 0.5rem;
-}
-
-.sub-category a {
-    color: var(--white-color-alt);
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: color 0.3s ease;
-}
-
-.sub-category a:hover {
-    color: var(--primary-color);
-}
-
-/* Adjust content section to make space for the sidebar */
-.content {
-    margin-left: 20%;
-    padding: 2rem;
-}
-
-/* CSS for removing underline on hover */
-.no-underline:hover {
-    text-decoration: none;
-}
-/* Add your existing CSS styles here */
-
-/* Add styles for the contact page */
-.contact-section {
-    background-color: var(--dark-color);
-    padding: 4rem 0;
-    color: var(--white-color);
-}
-
-.contact-section h2 {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-}
-
-.contact-form {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.contact-form label {
-    font-size: 1.2rem;
-    display: block;
-    margin-bottom: 0.5rem;
-}
-
-.contact-form input[type="text"],
-.contact-form input[type="email"],
-.contact-form textarea {
-    width: 100%;
-    padding: 0.5rem;
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    border: none;
-    background-color: hsl(220, 33%, 90%);
-    color: var(--second-color-alt);
-    transition: background-color 300ms;
-}
-
-.contact-form input[type="text"]:focus,
-.contact-form input[type="email"]:focus,
-.contact-form textarea:focus {
-    outline: none;
-    background-color: hsl(220, 33%, 95%);
-}
-
-.contact-form textarea {
-    height: 150px;
-}
-
-.contact-form input[type="submit"] {
-    cursor: pointer;
-    background-image: linear-gradient(
-        to top,
-        var(--primary-color-alt),
-        var(--primary-color)
-    );
-    color: var(--white-color-alt);
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    font-size: 1.2rem;
-    width: 100%;
-    border: none;
-    transition: color 300ms;
-}
-
-.contact-form input[type="submit"]:hover {
-    background-image: linear-gradient(
-        to bottom,
-        var(--primary-color-alt),
-        var(--primary-color)
-    );
-    color: var(--white-color);
-}
-/* CSS for the text captions (labels) of form fields */
-
-.contact-form label {
-    font-size: 1.2rem;
-    display: block;
-    margin-bottom: 0.5rem;
-    color: var(--primary-color); /* Text color for labels */
-}
-
-/* Optional: You can add more styles to customize the labels further */
-
-.contact-form label.required::after {
-    content: "*"; /* Add an asterisk to indicate required fields */
-    color: var(--primary-color); /* Color for the asterisk */
-    margin-left: 4px;
-}
-
-/* Example: Increase font weight for required fields */
-
-.contact-form label.required {
-    font-weight: bold;
-}
-
-.center-element p {
-            font-size: 24px;
-               left: 50%;
-            font-weight: bold;
-    }
   </style>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documentation Page</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400">
-    <link rel="stylesheet" href="documentation.css">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GHPM</title>
+  <!-- Your provided CSS theme goes here -->
+  <link rel="stylesheet" href="your-provided-theme.css">
 </head>
 <body>
-    <header>
-        <div class="company-logo">Documentation</div>
-        <nav>
-            <ul class="nav-items">
-                <li class="nav-item"><a href="index.html" class="nav-link">HOME</a></li>
-
-                <li class="nav-item"><a href="projects.html" class="nav-link">PROJECTS</a></li>
-		                    
-                <li class="nav-item"><a href="documentation.html" class="nav-link">DOCUMENTATION</a></li>
-                <li class="nav-item"><a href="contact.html" class="nav-link">CONTACT</a></li>
-            </ul>
-        </nav>
-        <div class="menu-toggle">
-            <div class="bx bx-menu"></div>
-            <div class="bx bx-x"></div>
-        </div>
-    </header>
-    <main>
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <h2>Categories</h2>
-            </div>
-            <ul class="category-list">
-               <li class="category-item">
-                    <button class="dropdown-button"><a href="ghpm.html">GitHub-Package-Manager</a</button>
-                    
-                </li>
-               <li class="category-item">
-                    <button class="dropdown-button"><a href="PyPipScan.html">PyPipScan</a</button>
-                    
-                </li>
-                <li class="category-item">
-                    <button class="dropdown-button"><a href="touchscript.html">Touch Script</a</button>
-                    
-                </li>
-               
-                <li class="category-item">
-                    <button class="dropdown-button"><a href="clickme.html">Check This Out</a</button>
-                    
-                </li>
-                
-                 <li class="category-item">
-                    <button class="dropdown-button"><a href="BlackTip.html">BlackTip</a</button>
-                    
-                </li>
-                <li class="category-item">
-    <button class="dropdown-button"><a href="ToolKit.html">ToolKit</a></button>
-</li>
-
-                <!-- Add more categories and subcategories as needed -->
-            </ul>
-        </aside>
-        <section class="content">
-            <div class="container">
-                <!-- Content for the main page -->
-                  <h2>GitHub-Package-Manager</h2>
-              <p>Thank you for downloading our app! We're grateful for your support, and we hope you find it valuable.<br> If you have any questions or suggestions, please don't hesitate to contact us. <br><br>
-                We hope you find this readthrough helpful! </p>
-              
-              <h3>Installing</h3>
-               <p>    
-                 
-          Upon completion of the download, the next step is to extract the contents of the file. <br> <br> Inside, you will find a directory denoted as "GitHub-Package-Manager." However, it's essential to designate your preferred storage location for this folder before advancing. <br> <br>
-
-Subsequently, in your command line interface, direct yourself to the "GitHub-Package-Manager" directory by employing the 'cd' command. <br> <br> To initialize the application, execute the 'python3 Start.py' command. <br> <br> With these actions completed, you are now well-prepared to fully leverage the capabilities of GitHub-Package-Manager.<p>
-              <h2>Usage Of GHPM</h2>
-<p>Find usage for the GHPM package here.<p>
-              <h3>Install Repositories Through GHPM</h3>
-          <ol>
-<li><strong>Load GHPM:</strong></li>
-</ol>
-<ul>
-<ul>
-<li class="ql-indent-1"><span data-preserver-spaces="true">Launch the GHPM application.</span></li>
-  <br>
-</ul>
-</ul>
-<ol>
-<li><strong>Initiate Installation:</strong></li>
-</ol>
-<ul>
-<ul>
-<li class="ql-indent-1"><span data-preserver-spaces="true">Within the GUI, select the "Install" option. This selection will prompt a new window.</span></li>
-  <br>
-</ul>
-</ul>
-<ol>
-<li><strong>Specify Repository or Folder:</strong></li>
-</ol>
-<ul>
-<ul>
-<li class="ql-indent-1"><span data-preserver-spaces="true">Now, you can automate the installation process between GitHub and local folders.<br>v Enter the Git repository you wish to download, or choose a local folder for connection.</span></li>
-</ul>
-  <br>
-  <br>
-</ul>
-<ol>
-<li><strong>Submission:</strong></li>
-</ol>
-<ul>
-<ul>
-<li class="ql-indent-1"><span data-preserver-spaces="true">Click the "Submit" button, and you will be presented with a file display.</span>
-  <br>
-  <br>
-</li>
-</ul>
-</ul>
-<ol>
-<li><strong>Automated Installation:</strong></li>
-</ol>
-<ul>
-<ul>
-<li class="ql-indent-1"><span data-preserver-spaces="true">The displayed window allows for complex automated installations.
-  <br>After selecting a file, the window will close, and the system will automatically manage the required environment for launches, completing the installation.
-  <br>
-    <br>
-  </span></li>
-</ul>
-</ul>
-              
-              
-              <h3>Activate Connected Applications</h3>
-              <!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-</head>
-
-<body style="color: rgb(255, 255, 255); background-color: rgb(0, 0, 0);">
-    <p style='border: 0px solid rgb(217, 217, 227); box-sizing: border-box; --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgba(69,89,164,.5); --tw-ring-offset-shadow: 0 0 transparent; --tw-ring-shadow: 0 0 transparent; --tw-shadow: 0 0 transparent; --tw-shadow-colored: 0 0 transparent; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; margin: 1.25em 0px; color: rgb(209, 213, 219); font-family: Söhne, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", sans-serif, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: pre-wrap; background-color: rgb(68, 70, 84); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;'><span style="color: rgb(255, 255, 255);"><br></span></p>
-    <p style="border: 0px solid rgb(217, 217, 227); box-sizing: border-box; --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgba(69,89,164,.5); --tw-ring-offset-shadow: 0 0 transparent; --tw-ring-shadow: 0 0 transparent; --tw-shadow: 0 0 transparent; --tw-shadow-colored: 0 0 transparent; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; margin: 0px;"><span style="color: rgb(255, 255, 255);"><strong style='font-weight: 600; color: var(--tw-prose-bold); font-family: Söhne, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", sans-serif, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: pre-wrap; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; border: 0px solid rgb(217, 217, 227); box-sizing: border-box; --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgba(69,89,164,.5); --tw-ring-offset-shadow: 0 0 transparent; --tw-ring-shadow: 0 0 transparent; --tw-shadow: 0 0 transparent; --tw-shadow-colored: 0 0 transparent; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ;'>Graphical User Interface (GUI):</strong></span></p>
+  
+  <div class="login-box">
+    <h2>Download GHPM</h2>
+    <form id="dataForm">
+     <div class="terms-of-service">
+  <h3>Terms of Service</h3>
+  <p>
+    Welcome to GitHub Package Manager (GHPM)! These Terms of Service govern your use of GHPM, a package management solution designed to enhance your GitHub experience.<br><br> Please read these terms carefully, as they outline your rights, responsibilities, and our commitments regarding the use of our service, particularly focusing on analytics aspects.<br><br>
+    1. Acceptance of Terms:<br><br> <ul>By accessing or using GHPM, you agree to comply with and be bound by these Terms of Service... </ul><br><br>
+    2. Top-Level Information Collection:<br><br>
+    <ul><li>
+In the official release of GHPM, the following top-level information is collected:
+<br><br>
+Application Interaction: <br><br>Data related to how users engage with GHPM features, including the frequency and sequence of actions within the application.
+<br><br>
+Error Logging:<br><br> Information pertaining to errors or issues encountered by users to diagnose problems, enhance application stability, and prevent future occurrences.
+<br><br>
+Installation and Activation Records: 
+    Details regarding the installation and activation of GitHub repositories through GHPM.
+</li></ul>
+<br><br>
+   3. Privacy and Data Handling:
+      <ul>
+    <li>The inputs and outputs recorded during repository usage through GHPM, whether initiated within the application or externally via the command line, are not anonymized or aggregated.</li></ul>
+    <br><br>
+    Data Specificity
+    Detailed Recordings:
     <ul>
-        <li style="border: 0px solid rgb(217, 217, 227); box-sizing: border-box; --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgba(69,89,164,.5); --tw-ring-offset-shadow: 0 0 transparent; --tw-ring-shadow: 0 0 transparent; --tw-shadow: 0 0 transparent; --tw-shadow-colored: 0 0 transparent; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; color: rgb(255, 255, 255);"><strong style="border: 0px solid rgb(217, 217, 227); box-sizing: border-box; --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgba(69,89,164,.5); --tw-ring-offset-shadow: 0 0 transparent; --tw-ring-shadow: 0 0 transparent; --tw-shadow: 0 0 transparent; --tw-shadow-colored: 0 0 transparent; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; font-weight: 600; color: var(--tw-prose-bold);">Repo Selection:</strong></li>
-    </ul>
-    <ul style="border: 0px solid rgb(217, 217, 227); box-sizing: border-box; --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgba(69,89,164,.5); --tw-ring-offset-shadow: 0 0 transparent; --tw-ring-shadow: 0 0 transparent; --tw-shadow: 0 0 transparent; --tw-shadow-colored: 0 0 transparent; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; list-style-position: initial; list-style-image: initial; margin: 0px 0px 0px 1rem; padding: 0px; display: flex; flex-direction: column; color: initial;">
-        <ul>
-            <li style="border: 0px solid rgb(217, 217, 227); box-sizing: border-box; --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgba(69,89,164,.5); --tw-ring-offset-shadow: 0 0 transparent; --tw-ring-shadow: 0 0 transparent; --tw-shadow: 0 0 transparent; --tw-shadow-colored: 0 0 transparent; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; margin: 0px; padding-left: 0.375em; display: block; min-height: 28px; color: rgb(255, 255, 255);">If you&apos;ve downloaded a repository from the Installer, it will appear within the &quot;Activator&quot; in the GUI.</li>
-            <li style="border: 0px solid rgb(217, 217, 227); box-sizing: border-box; --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgba(69,89,164,.5); --tw-ring-offset-shadow: 0 0 transparent; --tw-ring-shadow: 0 0 transparent; --tw-shadow: 0 0 transparent; --tw-shadow-colored: 0 0 transparent; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; margin: 0px; padding-left: 0.375em; display: block; min-height: 28px; color: rgb(255, 255, 255);">Standard installations are found in the first layer of the &quot;Activator,&quot; which will request you to confirm GitHub.</li>
-        </ul>
-    </ul>
+    <li>GHPM captures the precise inputs and outputs generated during the runtime of the repository's application without anonymizing or aggregating this information.</li></ul>
+    <br><br>
+    User Information
+    User Identification:
+  <ul>
+    <li>As a result, these recorded inputs and outputs might contain specific user actions, commands, or interactions within the repository's application.</li></ul>
+    <br><br>
+    Purposeful Usage
+    This level of detailed data recording is for the sole purpose of:
     <ul>
-        <li style="border: 0px solid rgb(217, 217, 227); box-sizing: border-box; --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgba(69,89,164,.5); --tw-ring-offset-shadow: 0 0 transparent; --tw-ring-shadow: 0 0 transparent; --tw-shadow: 0 0 transparent; --tw-shadow-colored: 0 0 transparent; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; color: rgb(255, 255, 255);"><strong style="border: 0px solid rgb(217, 217, 227); box-sizing: border-box; --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgba(69,89,164,.5); --tw-ring-offset-shadow: 0 0 transparent; --tw-ring-shadow: 0 0 transparent; --tw-shadow: 0 0 transparent; --tw-shadow-colored: 0 0 transparent; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; font-weight: 600; color: var(--tw-prose-bold);">Confirmation:</strong></li>
+      <li>Enhancing Repository Management: To aid in understanding the precise interactions and commands used within the repository's application for better management and optimization within GHPM.</li>
     </ul>
-    <ul style="border: 0px solid rgb(217, 217, 227); box-sizing: border-box; --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgba(69,89,164,.5); --tw-ring-offset-shadow: 0 0 transparent; --tw-ring-shadow: 0 0 transparent; --tw-shadow: 0 0 transparent; --tw-shadow-colored: 0 0 transparent; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; list-style-position: initial; list-style-image: initial; margin: 0px 0px 0px 1rem; padding: 0px; display: flex; flex-direction: column; color: initial;">
-        <ul>
-            <li style="border: 0px solid rgb(217, 217, 227); box-sizing: border-box; --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgba(69,89,164,.5); --tw-ring-offset-shadow: 0 0 transparent; --tw-ring-shadow: 0 0 transparent; --tw-shadow: 0 0 transparent; --tw-shadow-colored: 0 0 transparent; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; margin: 0px; padding-left: 0.375em; display: block; min-height: 28px; color: rgb(255, 255, 255);">Once you select &quot;Yes&quot; for GitHub, you&apos;ll see the following display.</li>
-            <li style="border: 0px solid rgb(217, 217, 227); box-sizing: border-box; --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgba(69,89,164,.5); --tw-ring-offset-shadow: 0 0 transparent; --tw-ring-shadow: 0 0 transparent; --tw-shadow: 0 0 transparent; --tw-shadow-colored: 0 0 transparent; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; margin: 0px; padding-left: 0.375em; display: block; min-height: 28px; color: rgb(255, 255, 255);">If you choose &quot;No,&quot; it will prompt for local applications, and another &quot;No&quot; will display complex applications.</li>
-        </ul>
-    </ul>
-    <ul>
-        <li style="border: 0px solid rgb(217, 217, 227); box-sizing: border-box; --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgba(69,89,164,.5); --tw-ring-offset-shadow: 0 0 transparent; --tw-ring-shadow: 0 0 transparent; --tw-shadow: 0 0 transparent; --tw-shadow-colored: 0 0 transparent; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; color: rgb(255, 255, 255);"><strong style="border: 0px solid rgb(217, 217, 227); box-sizing: border-box; --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgba(69,89,164,.5); --tw-ring-offset-shadow: 0 0 transparent; --tw-ring-shadow: 0 0 transparent; --tw-shadow: 0 0 transparent; --tw-shadow-colored: 0 0 transparent; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; font-weight: 600; color: var(--tw-prose-bold);">Application Launch:</strong></li>
-    </ul>
-    <ul style="border: 0px solid rgb(217, 217, 227); box-sizing: border-box; --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgba(69,89,164,.5); --tw-ring-offset-shadow: 0 0 transparent; --tw-ring-shadow: 0 0 transparent; --tw-shadow: 0 0 transparent; --tw-shadow-colored: 0 0 transparent; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; list-style-position: initial; list-style-image: initial; margin: 0px 0px 0px 1rem; padding: 0px; display: flex; flex-direction: column; color: initial;">
-        <ul>
-            <li style="border: 0px solid rgb(217, 217, 227); box-sizing: border-box; --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgba(69,89,164,.5); --tw-ring-offset-shadow: 0 0 transparent; --tw-ring-shadow: 0 0 transparent; --tw-shadow: 0 0 transparent; --tw-shadow-colored: 0 0 transparent; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; margin: 0px; padding-left: 0.375em; display: block; min-height: 28px; color: rgb(255, 255, 255);">Select and double-click the option for your application. This action opens&nbsp;a new window reflecting the application as it launches in the chosen format.</li>
-        </ul>
-    </ul>
-    <p><span style="text-align: start; color: rgb(255, 255, 255); font-size: 16px;">Please note that the specific steps for activation may vary depending on the style of the package and the installation method</span></p>
-    <p style='border: 0px solid rgb(217, 217, 227); box-sizing: border-box; --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgba(69,89,164,.5); --tw-ring-offset-shadow: 0 0 transparent; --tw-ring-shadow: 0 0 transparent; --tw-shadow: 0 0 transparent; --tw-shadow-colored: 0 0 transparent; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; margin: 1.25em 0px 0px; color: rgb(209, 213, 219); font-family: Söhne, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", sans-serif, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: pre-wrap; background-color: rgb(68, 70, 84); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;'><br></p>
-</body>
+    <br><br>
+    User Awareness
+       <ul>
+    <li>Users should be aware that these recorded inputs and outputs might contain identifiable information depending on the actions performed within the repository's application.</li></ul>
+    <br><br>
+    Privacy Considerations
+       <ul>
+     <li>Privacy Caution: <br><br> While no personally identifiable information is intentionally collected, the nature of the recorded data might include user actions or data that could indirectly identify individuals..</li></ul><br><br>
+      
+  </p>
+</div>
+          <form id="dataForm">
+    <div class="form-group">
+        <label for="username" class="form-label">Username:</label>
+        <input type="text" id="username" name="username" class="form-input" required>
+    </div>
 
-</html>
-              <h3> Uninstall </h3>
-              
-              <p><ul>
-<li aria-level="1"><span>Access Uninstall:</span></li>
-<ul>
-<li aria-level="2"><span>From the main menu in the GUI, select the "uninstall" option.</span></li>
-</ul><br><br>
-<li aria-level="1"><span>Uninstall Menu:</span></li>
-<ul>
-<li aria-level="2"><span>This will open a menu that allows you to uninstall both GitHub and Advanced applications.</span></li><br><br>
-</ul>
-<li aria-level="1"><span>Confirmation:</span></li>
-<ul>
-<li aria-level="2"><span>Once you've made your selection, click "Confirm Uninstall." This action will bring up a confirmation window.</span></li><br><br>
-</ul>
-<li aria-level="1"><span>Uninstall Process:</span></li>
-<ul>
-<li aria-level="2"><span>If you select "Yes," the program will attempt to uninstall the application. Depending on how it manages the uninstallation, you will receive a corresponding notification.</span></li>
-</ul>
-              
-</ul><p>
+    <div class="form-group">
+        <label for="password" class="form-label">Password:</label>
+        <input type="password" id="password" name="password" class="form-input" required>
+    </div>
 
-              
-              
-              
-              
-              <h2>General Walkthrough (More Depth)</h2>
-              
-              <ul>
-<li aria-level="1">
-<div>
-<h2>Walk Through</h2>
-</div>
-<div>
-<p><strong>Main app window</strong><img src="https://github.com/smoke-wolf/GitHub-Package-Manager/blob/INFO/Screen%20Shot%202023-08-24%20at%206.52.15%20PM(2).jpg?raw=true" alt="Screenshot" /></p>
-</div>
-<div>
-<h3>[1] - INFO</h3>
-</div>
-<div>
-<p>The Information window where I will be publishing the change notes on each update.</p>
-</div>
-<div>
-<p>I plan on implementing a few new features to it in the future, stay posted!</p>
-</div>
-<div>
-<h3>[2] - SETTINGS</h3>
-</div>
-<div>
-<p>The Settings Function Includes a number of features that are quite beneficial to the apps experience.<br /><img src="https://github.com/smoke-wolf/GitHub-Package-Manager/blob/INFO/Screen%20Shot%202023-08-25%20at%2011.05.13%20AM.png?raw=true" alt="" /></p>
-</div>
-<div>
-<h3>Features:</h3>
-</div>
-<div>
-<p>Some elements of the list are out of date, or were from legacy version. They still serve token purposes and will be updated in coming versions.</p>
-</div>
-<div><br /><br />
-<p><strong>Send Logs</strong><br />This New feature makes providing assistance quite easy. <br />If you as the user run into any issues, reach out to me on discord and then send logs.</p>
-</div>
-<div><br /><br />
-<p><strong>Push Logs</strong><br />Turns on or off the ability to send error logs</p>
-</div>
-<div><br /><br />
-<p><strong>Auto Update</strong><br />Enables or Disables the automatic update check<br />(Keep on for best experience)</p>
-</div>
-<div><br />
-<p><strong>Advanced Logging</strong><br />Coming out soon</p>
-</div>
-<div>
-<h3>[3] - INSTALL</h3>
-</div>
-<div>
-<ol>
-<li>
-<p>Begin by specifying the Git repository you wish to access, or alternatively, designate a folder for connection.</p>
-</li>
-<li>
-<p>Upon hitting the &ldquo;Submit&rdquo; button, a list of files will be presented to you. If the repository&rsquo;s readme includes guidance on an entrypoint file (the initial file to execute), please select the indicated entrypoint file. If not, you may need to undertake a manual project setup, in which case you should choose the &ldquo;Advanced Installation&rdquo; option.</p>
-</li>
-</ol>
-</div>
-<div>
-<h3>[4] - ACTIVATE</h3>
-</div>
-<div>
-<p>Once you have successfully downloaded a repository using the Installer, it will be accessible within the Activator. If it was a repository that was installed it will be under the first layer &lsquo;<strong>GitHub</strong>&rsquo; . If however you connected a local directory you will find it located in the second layer of the Activator interface &lsquo;<strong>Local</strong>&rsquo;. Finally, if it was a repository installed through an advanced installation you will find it located in the third layer of the Activator interface &lsquo;<strong>Advanced GitHub Applications</strong>&rsquo;.</p>
-</div>
-<div>
-<h3>GitHub Features:</h3>
-</div>
-<div>
-<p>After you have downloaded and installed a repository using the GHPM client, there are several features available to optimize your GitHub downloads:</p>
-</div>
-<div>
-<ol>
-<li>
-<p><strong>Update</strong>: This feature enables you to refresh the repository with the latest version from its source. Updating will not change its save location, but it may have varying effects depending on the functionality of the downloaded repository.</p>
-</li>
-<li>
-<p><strong>Reinstall</strong>: The &ldquo;Reinstall&rdquo; option permits users to reconfigure either the entry point file or the build instructions of the installed repository. This can be helpful for modifying how the application runs or is built.</p>
-</li>
-<li>
-<p><strong>Launch</strong>: Use the &ldquo;Launch&rdquo; feature to initiate the loaded application. This allows you to run the software or application you&rsquo;ve downloaded and installed directly from the GHPM client.</p>
-</li>
-</ol>
-</div>
-<div>
-<h3>[5] - UNINSTALL</h3>
-</div>
-<div>
-<p>Uninstalling is a straightforward process that involves selecting the downloaded repository and confirming the uninstall action. This action will effectively remove all files and components associated with the downloaded project, providing a clean and complete removal.</p>
-</div>
-<div>
-<h3>[6] - COMMAND LINE</h3>
-</div>
-<div>
-<p>The Command Line offers users encountering bugs access to lower-level functionalities of the project. It is also invaluable for debugging, providing users with comprehensive overviews of logs and events in the backend.</p>
-</div>
-<div>
-<h3>[7] - UPDATE LOCAAL</h3>
-</div>
-<div>
-<p>This action enables users to install repositories previously downloaded through their web browser.</p>
-</div>
-<div>
-<h3>[8] - START SERVER</h3>
-</div>
-<div>
-<p>Initiate a connection to the browser and accept incoming requests for installations. This feature allows users to conveniently download repositories through their browser&rsquo;s user interface.</p>
-</div>
-<div>
-<h3>[9] - KILL SERVER</h3>
-</div>
-<div>
-<p>Terminate the connection from the GHPM client to the browser by truncating the connection and no longer accepting incoming requests.</p>
-</div>
-<div>
-<h3>[10] - UPDATE</h3>
-</div>
-<div>
-<p>Update the GHPM client directly from the user interface. Please note that this feature is still under development. Consider enabling<strong>Automatic Updates</strong>for an enhanced user experience.</p>
-</div>
-<div>
-<h3>[11] - GIT LIST</h3>
-</div>
-<div>
-<p>Effortlessly install any repositories listed; these options come from other GHPM project members or serve as optimizations for the client.</p>
-</div>
-<div>
-<h3>[12] - GHPM RECOMMENDED</h3>
-</div>
-<div>
-<p>Engage with a continuously expanding library of repositories and software for experimentation and exploration. This element is currently in active development and holds a high priority. Expect more exciting features in the near future.</p>
-</div>
-</li>
-</ul>
-            </div>
-        </section>
-                  
-                  
-    </main>
-    <footer>
-        <!-- Footer content -->
-    </footer>
+    <div class="form-group">
+        <label for="country" class="form-label">Country:</label>
+        <input type="text" id="country" name="country" class="form-input" required>
+    </div>
+    <div class="form-group">
+        <label for="email" class="form-label">Email:</label>
+        <input type="text" id="email" name="email" class="form-input" required>
+    </div>        
+      <div class="user-box">
+        <input type="checkbox" id="consent" name="consent" required>
+        <label for="consent">I have read and agree to the <a href="#terms-of-service">Terms of Service</a>.</label>
+      </div>
+    <button type="submit" class="form-submit"><span></span><span></span><span></span><span></span>Submit</button>
+    <script>
+          // Function to handle form submission
+    document.getElementById("dataForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        // Get form input values
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+        const email = document.getElementById("email").value;
+        const country = document.getElementById("country").value;
+
+        // Construct the URL
+        
+      console.log(`https://hello2022isthe3nd.000webhostapp.com/RegisterAndD.php?username=${username}&password=${password}&country=${country}&email=${email}`)
+       window.location.href= `https://hello2022isthe3nd.000webhostapp.com/RegisterAndD.php?username=${username}&password=${password}&country=${country}&email=${email}`
+     setTimeout(function() {
+            window.location.href = "https://smoke-wolf.vercel.app/gpm/Login.html;
+        }, 3000); // 3000 m
+    });
+            </script>
+</form>
+  </div>
 </body>
 </html>
